@@ -10,7 +10,7 @@ class Game
 		@window = window
 
 		@backdrop = Background.new
-		@gui = GraphicInterface.new
+		@gui = GraphicInterface.new(window)
 		@player = Player.new(800/2, 600/2, window)
 
 	end
@@ -18,15 +18,10 @@ class Game
 	def update(window)
 
 		@player.update
-
-		if @window.button_down?(Gosu::KbTab) 
-			@gui.menu.draw(200,150,5)
-		end
-
 		
 	end
 
-	def draw
+	def draw(window)
 
 		@gui.draw
 
