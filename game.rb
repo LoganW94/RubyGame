@@ -8,13 +8,14 @@ class Game
 
 	@@location_id = 1
 
-	def initialize(window)
+	def initialize(window, width, height)
 		@window = window
-		
+		@width = width
+		@height = height
 
 		@backdrop = Background.new
 		@gui = GraphicInterface.new(window)
-		@player = Player.new(800/2, 600/2, window)
+		@player = Player.new(width/2, height/2, window)
 
 	end
 

@@ -8,10 +8,12 @@ class GraphicInterface
 		@window = window
 		@stat_bar = Gosu::Image
 		@location_text = Gosu::Image.from_text self, "Location: HOMETOWN", Gosu.default_font_name, 20
+		@location_text_two = Gosu::Image.from_text self, "Location: Unknown", Gosu.default_font_name, 20
 		@level_text = Gosu::Image.from_text self, "Level: 1", Gosu.default_font_name, 20
 		@hp_text = Gosu::Image.from_text self, "HP: 20", Gosu.default_font_name, 20
 		@inventory_text = Gosu::Image.from_text self, "Inventory: Sword of Burning", Gosu.default_font_name, 20
 		@inventory = Gosu::Image.new("graphics/inventory_menu.png")
+		@save_and_quit_menu = Gosu::Image.new("graphics/inventory_menu.png")
 	
 	end
 
@@ -32,7 +34,10 @@ class GraphicInterface
 	def menu
 		if @window.button_down?(Gosu::KbTab) 
 			@inventory.draw(200,150,5)
+		elsif @window.button_down?(Gosu::KbEscape)
+			@save_and_quit_menu.draw(100,75,5)
 		end
+
 	end
 
 	def location(location_id)
@@ -40,7 +45,7 @@ class GraphicInterface
 		if @location_id == 1
 			@location_text.draw(20,5,1)
 		else
-			Gosu::Image.from_text self, "Location: UNKNOWN", Gosu.default_font_name, 20
+			@location_text_two.draw(20,5,1)
 		end
 	end
 
