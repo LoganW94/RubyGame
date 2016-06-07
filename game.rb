@@ -6,8 +6,11 @@ require_relative 'gui'
 
 class Game
 
+	@@location_id = 1
+
 	def initialize(window)
 		@window = window
+		
 
 		@backdrop = Background.new
 		@gui = GraphicInterface.new(window)
@@ -23,7 +26,8 @@ class Game
 
 	def draw(window)
 
-		@gui.draw
+
+		@gui.draw(@@location_id)
 
 		@backdrop.draw
 

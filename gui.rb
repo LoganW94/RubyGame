@@ -15,18 +15,14 @@ class GraphicInterface
 	
 	end
 
-	def update
-
-
-	end
-
-	def draw
-
-		@location_text.draw(20,5,1)
+	def draw(location_id)
+		@location_id = location_id
+		
 		@level_text.draw(220,5,1)
 		@hp_text.draw(300,5,1)
 		@inventory_text.draw(400,5,1)
 		menu
+		location(@location_id)
 
 
 		#draw_line(0, 1, 0xff000000, 800, 1, 0xff000000)
@@ -38,4 +34,14 @@ class GraphicInterface
 			@inventory.draw(200,150,5)
 		end
 	end
+
+	def location(location_id)
+		
+		if @location_id == 1
+			@location_text.draw(20,5,1)
+		else
+			Gosu::Image.from_text self, "Location: UNKNOWN", Gosu.default_font_name, 20
+		end
+	end
+
 end
