@@ -15,10 +15,15 @@ class Game
 
 	end
 
-	def update
+	def update(window)
 
 		@player.update
 
+		if @window.button_down?(Gosu::KbTab) 
+			@gui.menu.draw(200,150,5)
+		end
+
+		
 	end
 
 	def draw

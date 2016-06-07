@@ -7,7 +7,7 @@ class GameWindow < Gosu::Window
 	def initialize width = 800, height = 600, fullscreen = false
 
 		super width, height, fullscreen
-		self.caption = "DUNGEON MASTER              Version alpha"
+		self.caption = "DUNGEON MASTER                              Version alpha"
 
 		@game = Game.new(self)		
 
@@ -19,7 +19,7 @@ class GameWindow < Gosu::Window
 			self.close
 		end  
 
-		@game.update
+		@game.update(self)
 
 	end
 

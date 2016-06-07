@@ -29,4 +29,7 @@ class GraphicInterface
 		#draw_quad(x1, y1, c1, x2, y2, c2, x3, y3, c3, x4, y4, c4, z = 0, mode = :default)
 	end
 
+	def menu
+		@inventory = Gosu::Image.new("graphics/inventory_menu.png")
+	end
 end

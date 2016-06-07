@@ -5,7 +5,7 @@ require 'gosu'
 class Player
 
 	def initialize(position_x = 800/2, position_y = 600/2, window)
-    	@image = Gosu::Image.new("sprites/sprite.png", false)
+    	@image = Gosu::Image.new("graphics/sprite.png", false)
     	@pos_x = position_x
     	@pos_y = position_y
     	@window = window

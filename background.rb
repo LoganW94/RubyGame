@@ -3,7 +3,7 @@ require 'gosu'
 class Background
 
 	def initialize
-    	@image = Gosu::Image.new("sprites/town.png", false)
+    	@image = Gosu::Image.new("graphics/town.png", false)
     	
   	end
 
