@@ -12,16 +12,20 @@ class Game
 		@window = window
 		@width = width
 		@height = height
+		@player_level = 1
+		@player_exp = 0
 
 		@backdrop = Background.new
-		@gui = GraphicInterface.new(window)
-		@player = Player.new(width/2, height/2, window)
+		@gui = GraphicInterface.new(window, @player_level, @player_exp)
+		@player = Player.new(@width/2, @height/2, @window, @player_level, @player_exp)
 
 	end
 
 	def update(window)
 
 		@player.update
+		@player.gain_exp(@player_exp)
+		@player.level_up(@player_exp, @player_level)
 		
 	end
 

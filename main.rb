@@ -9,7 +9,7 @@ class GameWindow < Gosu::Window
 		super width, height, fullscreen
 		self.caption = "DUNGEON MASTER ****pre alpha****"
 
-		@game = Game.new(self,width,height)		
+		@game = Game.new(self, width, height)		
 
 	end
 

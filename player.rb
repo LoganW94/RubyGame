@@ -4,14 +4,35 @@ require 'gosu'
 
 class Player
 
-	def initialize(position_x = 800/2, position_y = 600/2, window)
+	def initialize(position_x, position_y, window, level, experience)
     	@image = Gosu::Image.new("graphics/sprite.png", false)
     	@pos_x = position_x
     	@pos_y = position_y
     	@window = window
+      @level = level
+      exp = experience
+  end
+
+  def level_up(exp, level)
+    @level = level
+    if exp > 100
+      @level += 1
+      exp = 0
+      return @level
+    end
+
+  end
+
+  def gain_exp(exp)
+
+    exp += 1
+    return exp
+
   end
 
   def update
+
+    
 		 
    	if @window.button_down?(Gosu::KbLeft) 
 
