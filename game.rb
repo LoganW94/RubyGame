@@ -23,9 +23,9 @@ class Game
 
 	def update(window)
 
-		@player.update
-		@player.gain_exp(@player_exp)
-		@player.level_up(@player_exp, @player_level)
+		@player.update(@player_exp, @player_level)
+		#@player.gain_exp(@player_exp)
+		#@player.level_up(@player_exp, @player_level)
 		
 	end
 
