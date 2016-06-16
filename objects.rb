@@ -1,18 +1,24 @@
 require 'gosu'
 
 
-def initialize 
+class Objects
+
+
+	def initialize 
+
+
+	end
+
+
+	def update 
+
+
+	end
+
+
+	def draw
+
+	end 
 
 
 end
-
-
-def update 
-
-
-end
-
-
-def draw
-
-end 

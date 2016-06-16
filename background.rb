@@ -2,18 +2,40 @@ require 'gosu'
 
 class Background
 
-	def initialize
+	def initialize(position_x, position_y, window)
+		@pos_x = position_x
+    	@pos_y = position_y
+    	@window = window
+
+
     	@image = Gosu::Image.new("graphics/town.png", false)
     	
   	end
 
    	def update
 
+
+   		if @window.button_down?(Gosu::KbLeft)     
+   		  @pos_x += 2 
+   		end    
+
+   		if @window.button_down?(Gosu::KbRight) 
+    	    @pos_x += -2        		 
+   		end
+
+   		if @window.button_down?(Gosu::KbUp)
+        	@pos_y += 2  
+   		end
+
+   		if @window.button_down?(Gosu::KbDown) 
+        	@pos_y += -2 	
+   		end
+
   	end
 
   	def draw
   		
-   	 	@image.draw(0, 30, 0)
+   	 	@image.draw(@pos_x, @pos_y, 0)
 
  	end
 

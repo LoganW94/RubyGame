@@ -4,85 +4,56 @@ require 'gosu'
 
 class Player
 
-	def initialize(position_x, position_y, window, level, experience)
-    	@image = Gosu::Image.new("graphics/sprite.png", false)
-    	@pos_x = position_x
-    	@pos_y = position_y
-    	@window = window
-      @level = level
-      exp = experience
+	def initialize(position_x, position_y)
+    	
+    @pos_x = position_x
+    @pos_y = position_y
+
+    @image = Gosu::Image.new("graphics/sprite.png", false)
+
+    @level = 1
+    @exp = 0
+    @hp = 200
+
+
+
   end
 
-  def level_up(exp, level)
+  def inventory
+
+    return "Sword of burning"
+
+  end
+
+  def health
+
+    return @hp
+
+  end
+
+  def  level
     
-    if exp >= 100
-      level += 1
-      exp = 0
-
-      return level
-    end
-
+    return @level
+    
   end
 
-  def gain_exp(exp)
+  def exp
 
-    exp += 1
-    return exp
+    return @exp
 
-  end
+  end 
 
-  def update(exp, level)
 
-    level_up(exp, level)
-    gain_exp(exp)
+  def update
 
-		 puts "#{level} , #{exp}"
-
-   	if @window.button_down?(Gosu::KbLeft) 
-
-      if @pos_x < 0 
-        @pos_x += 0.05
-      else
-   		  @pos_x += -2 
-      end
-
-   	end  
-
-   	if @window.button_down?(Gosu::KbRight) 
-
-      if @pos_x > 800 - @image.width
-        @pos_x += -0.05
-      else
-        @pos_x += 2 
-      end
-   		 
-   	end
-
-   	if @window.button_down?(Gosu::KbUp) 
-
-      if @pos_y < 31  
-        @pos_y += 0.05
-      else        
-        @pos_y += -2  
-      end
-
-   	end
-
-   	if @window.button_down?(Gosu::KbDown) 
-
-      if @pos_y > 600 - @image.height 
-        @pos_y += -0.05
-      else
-        @pos_y += 2  
-      end
-
-   		
-   	end
+    health
+    exp
+    level
 
   end
 
   def draw
-   	 @image.draw(@pos_x, @pos_y, 0)
+   	 @image.draw(@pos_x, @pos_y, 1)
  	end
 
 end
