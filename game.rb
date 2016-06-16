@@ -9,7 +9,6 @@ require_relative 'objects'
 
 class Game
 
-	@@location_id = 1
 
 	def initialize(window, width, height)
 		@window = window
@@ -23,7 +22,7 @@ class Game
 
 		@objects = Objects.new
 
-		@gui = GraphicInterface.new(window, @player.level, @player.exp, @player.health, @player.inventory)
+		@gui = GraphicInterface.new(window, @player.level, @player.exp, @player.health, @player.inventory, @backdrop.location)
 
 	end
 
@@ -38,7 +37,7 @@ class Game
 	def draw(window)
 
 
-		@gui.draw(@@location_id)
+		@gui.draw
 
 		@backdrop.draw
 

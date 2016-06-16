@@ -9,12 +9,12 @@ class Player
     @pos_x = position_x
     @pos_y = position_y
 
-    @image = Gosu::Image.new("graphics/sprite.png", false)
-
+    @hp = 200
     @level = 1
     @exp = 0
-    @hp = 200
 
+
+    @image = Gosu::Image.new("graphics/sprite.png", false)
 
 
   end
@@ -26,18 +26,25 @@ class Player
   end
 
   def health
-
+    
     return @hp
 
   end
 
-  def  level
+  def  level  
     
     return @level
     
   end
 
+  def level_up
+
+    @level +=1
+
+  end
+
   def exp
+    
 
     return @exp
 
@@ -48,8 +55,9 @@ class Player
 
     health
     exp
+    level_up
     level
-
+  
   end
 
   def draw

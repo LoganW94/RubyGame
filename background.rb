@@ -12,6 +12,12 @@ class Background
     	
   	end
 
+  	def location
+  		@location = "Damerel"
+  		return @location
+
+  	end
+
    	def update
 
 
