@@ -24,7 +24,7 @@ class GraphicInterface
 	def draw(location_id)
 		@location_id = location_id
 		
-		#@level_text.draw(220,5,1)
+	
 		@hp_text.draw(300,5,1)
 		@inventory_text.draw(400,5,1)
 		disp_player_level

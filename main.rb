@@ -7,18 +7,14 @@ class GameWindow < Gosu::Window
 	def initialize width = 800, height = 600, fullscreen = false
 
 		super width, height, fullscreen
-		self.caption = "DUNGEON MASTER ****pre alpha****"
+		self.caption = "Hero of Damerel          ****pre alpha****"
 
 		@game = Game.new(self, width, height)		
 
 	end
 
 	def update	
-=begin		
-		if button_down?(Gosu::KbEscape) 
-			self.close
-		end  
-=end
+
 		@game.update(self)
 
 	end

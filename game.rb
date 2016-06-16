@@ -6,7 +6,7 @@ require_relative 'gui'
 
 class Game
 
-	@@location_id = 1
+	@location_id = 1
 
 	def initialize(window, width, height)
 		@window = window
@@ -30,7 +30,7 @@ class Game
 	def draw(window)
 
 
-		@gui.draw(@@location_id)
+		@gui.draw(@location_id)
 
 		@backdrop.draw
 

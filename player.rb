@@ -14,11 +14,12 @@ class Player
   end
 
   def level_up(exp, level)
-    @level = level
+    
     if exp >= 100
-      @level += 1
+      level += 1
       exp = 0
-      return @level
+
+      return level
     end
 
   end
@@ -34,7 +35,9 @@ class Player
 
     level_up(exp, level)
     gain_exp(exp)
-		 
+
+		 puts "#{level} , #{exp}"
+
    	if @window.button_down?(Gosu::KbLeft) 
 
       if @pos_x < 0 
