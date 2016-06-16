@@ -31,12 +31,11 @@ class Game
 
 	def update
 
-
-
-		@player.gain_exp(@player.exp)
-
-		@player.update(@player.exp, @player.level)
+		@player.exp = @player.gain_exp(@player.exp)
 		
+		@player.level = @player.level_up(@player.exp, @player.level)
+		
+
 		@backdrop.update
 
 		@gui.update

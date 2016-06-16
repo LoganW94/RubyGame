@@ -16,9 +16,9 @@ class Player
   end
 
   def gain_exp exp
-
-    exp + 1
-    return exp
+    @exp = exp
+    @exp + 1
+    return @exp
 
   end
 
@@ -28,10 +28,11 @@ class Player
   end
 
   def level_up exp, level
-
-    if exp  >= 100
-      level += 1
-      return level
+    @exp = exp
+    @level = level
+    if @exp  >= 100
+      @level += 1
+      return @level
     end
 
   end
@@ -42,10 +43,10 @@ class Player
 
   end
 
-  def update exp, level
+  def update 
 
-    gain_exp(exp)
-    level_up(exp, level)
+  
+    
   
   end
 

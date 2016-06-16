@@ -13,7 +13,7 @@ class Background
   	end
 
   	def location
-  		@location = "add name "
+  		@location = "add name"
   		return @location
 
   	end

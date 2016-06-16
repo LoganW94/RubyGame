@@ -12,7 +12,7 @@ class GraphicInterface
 		@player_in = player_in
 		@location = location	
 
-		#@menu = Gosu::Image.new
+		
 		@window = window
 		
 		
@@ -26,7 +26,6 @@ class GraphicInterface
 
 	def update
 		
-				
 
 	end
 
