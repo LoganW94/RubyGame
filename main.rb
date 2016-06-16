@@ -5,9 +5,9 @@ require_relative 'game'
 class GameWindow < Gosu::Window
 
 	def initialize width = 800, height = 600, fullscreen = false
+		super
 
-		super width, height, fullscreen
-		self.caption = "Hero of Damerel          ****pre alpha****"
+		self.caption = "Hero of  add name of towm here          ****pre alpha****"
 
 		@game = Game.new(self, width, height)		
 
@@ -15,13 +15,13 @@ class GameWindow < Gosu::Window
 
 	def update	
 
-		@game.update(self)
+		@game.update
 
 	end
 
 	def draw
 
-		@game.draw(self)
+		@game.draw
 
 	end
 

@@ -18,30 +18,39 @@ class Game
 
 		@backdrop = Background.new(0, 0, @window)
 		
-		@player = Player.new(@width/2, @height/2)
+		@player = Player.new
+		@player.level = 1
+		@player.exp = 0
+		@player.hp = 20
 
 		@objects = Objects.new
 
-		@gui = GraphicInterface.new(window, @player.level, @player.exp, @player.health, @player.inventory, @backdrop.location)
+		@gui = GraphicInterface.new(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)
 
 	end
 
-	def update(window)
+	def update
 
-		@player.update
+
+
+		@player.gain_exp(@player.exp)
+
+		@player.update(@player.exp, @player.level)
 		
 		@backdrop.update
+
+		@gui.update
 		
 	end
 
-	def draw(window)
+	def draw
 
 
 		@gui.draw
 
 		@backdrop.draw
 
-		@player.draw
+		@player.draw(@width/2, @height/2)
 
 	end	
 

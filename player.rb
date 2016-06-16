@@ -4,18 +4,35 @@ require 'gosu'
 
 class Player
 
-	def initialize(position_x, position_y)
-    	
-    @pos_x = position_x
-    @pos_y = position_y
 
-    @hp = 200
-    @level = 1
-    @exp = 0
+    attr_accessor :hp
+    attr_accessor :exp
+    attr_accessor :level
+
+	def initialize
+
+    @image = Gosu::Image.new("graphics/player.bmp", false)
+
+  end
+
+  def gain_exp exp
+
+    exp + 1
+    return exp
+
+  end
+
+  def delta_health
 
 
-    @image = Gosu::Image.new("graphics/sprite.png", false)
+  end
 
+  def level_up exp, level
+
+    if exp  >= 100
+      level += 1
+      return level
+    end
 
   end
 
@@ -25,43 +42,19 @@ class Player
 
   end
 
-  def health
-    
-    return @hp
+  def update exp, level
 
-  end
-
-  def  level  
-    
-    return @level
-    
-  end
-
-  def level_up
-
-    @level +=1
-
-  end
-
-  def exp
-    
-
-    return @exp
-
-  end 
-
-
-  def update
-
-    health
-    exp
-    level_up
-    level
+    gain_exp(exp)
+    level_up(exp, level)
   
   end
 
-  def draw
-   	 @image.draw(@pos_x, @pos_y, 1)
+  def draw position_x, position_y 
+      
+    @pos_x = position_x
+    @pos_y = position_y
+
+   	@image.draw(@pos_x, @pos_y, 1)
  	end
 
 end

@@ -4,15 +4,17 @@ require_relative 'game'
 
 class GraphicInterface 
 	
-	def initialize(window, player_level, player_exp, player_hp, player_in, location)
+	def initialize window, player_level, player_exp, player_hp, player_in, location
 
-		#@menu = Gosu::Image.new
-		@window = window
 		@player_level = player_level
 		@player_exp = player_exp
 		@player_hp = player_hp
 		@player_in = player_in
-		@location = location
+		@location = location	
+
+		#@menu = Gosu::Image.new
+		@window = window
+		
 		
 		@font = Gosu::Font.new(20)
 
@@ -20,6 +22,12 @@ class GraphicInterface
 
 		@save_and_quit_menu = Gosu::Image.new("graphics/inventory_menu.png")
 	
+	end
+
+	def update
+		
+				
+
 	end
 
 	def draw

@@ -8,12 +8,12 @@ class Background
     	@window = window
 
 
-    	@image = Gosu::Image.new("graphics/town.png", false)
+    	@image = Gosu::Image.new("graphics/map.jpg", false)
     	
   	end
 
   	def location
-  		@location = "Damerel"
+  		@location = "add name "
   		return @location
 
   	end
