@@ -8,6 +8,7 @@ class Player
     attr_accessor :hp
     attr_accessor :exp
     attr_accessor :level
+    attr_accessor :reqExp
 
 	def initialize
 
@@ -17,13 +18,23 @@ class Player
 
   def gain_exp exp
     @exp = exp
-    @exp += 5
+    @exp += 73
     return @exp
     
   end
 
   def delta_health
 
+
+  end
+
+  def incriment_reqexp(reqExp)
+
+    @reqExp =reqExp
+
+    @reqExp *= 1.20
+
+    return @reqExp
 
   end
 

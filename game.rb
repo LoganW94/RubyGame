@@ -22,6 +22,7 @@ class Game
 		@player.level = 1
 		@player.exp = 0
 		@player.hp = 20
+		@player.reqExp = 200
 
 		#@objects = Objects.new
 
@@ -32,23 +33,24 @@ class Game
 	def update
 
 		@player.exp = @player.gain_exp(@player.exp)
-		reqXp = 100
-		if @player.exp > reqXp
+		
+		if @player.exp >= @player.reqExp 
+
+			if @player.exp > @player.reqExp
+				expDiff = @player.exp - @player.reqExp
+			end
 			@player.level_up(@player.level)
-			@player.exp = 0
-			reqXp += 50
-			return reqXp
+			@player.exp = 0 + expDiff.to_int
+			@player.reqExp = @player.incriment_reqexp(@player.reqExp)
+
 		end
-		
-		
+				
 		@backdrop.update
 
-		@gui.update
 		
 	end
 
 	def draw
-
 
 		@gui.draw(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)
 
