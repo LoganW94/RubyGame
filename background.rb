@@ -2,7 +2,7 @@ require 'gosu'
 
 class Background
 
-	def initialize(position_x, position_y, window)
+	def initialize position_x, position_y, window
 		@pos_x = position_x
     	@pos_y = position_y
     	@window = window

@@ -22,11 +22,11 @@ Make a render class to replace the draw method in game
 
 Redesign player and create sprite sheet. Player design should be similar to  early pokemon games. See references below
 
-Make background move around player.
 
-Create large map to replace background
 
-Fix player level up system
+
+
+
 
 Get location name system working
 
@@ -34,7 +34,7 @@ Create player inventory
 
 Display current item in inventory on screen
 
-Add player experience bar to GUI
+
 
 Design game info GUI at top of window
 

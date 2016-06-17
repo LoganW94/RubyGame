@@ -10,7 +10,7 @@ require_relative 'objects'
 class Game
 
 
-	def initialize(window, width, height)
+	def initialize window, width, height
 		@window = window
 		@width = width
 		@height = height
@@ -31,6 +31,10 @@ class Game
 	end
 
 	def update
+
+
+		# update player level and exp.
+		# add other stat updates to this asap
 
 		@player.exp = @player.gain_exp(@player.exp)
 		

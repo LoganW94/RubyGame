@@ -28,7 +28,7 @@ class Player
 
   end
 
-  def incriment_reqexp(reqExp)
+  def incriment_reqexp reqExp
 
     @reqExp =reqExp
 

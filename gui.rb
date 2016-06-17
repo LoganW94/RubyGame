@@ -10,15 +10,10 @@ class GraphicInterface
 				
 		@font = Gosu::Font.new(20)
 
-		@inventory = Gosu::Image.new("graphics/inventory_menu.png")
+		@inventory = Gosu::Image.new("graphics/inventory_menu.bmp")
 
-		@save_and_quit_menu = Gosu::Image.new("graphics/inventory_menu.png")
+		@save_and_quit_menu = Gosu::Image.new("graphics/inventory_menu.bmp")
 	
-	end
-
-	def update
-		
-
 	end
 
 	def draw window, player_level, player_exp, player_hp, player_in, location
@@ -26,19 +21,18 @@ class GraphicInterface
 		@player_level = player_level
 		@player_exp = player_exp
 		@player_hp = player_hp
-		@player_in = player_in
-		
+		@player_in = player_in		
 		@location = location
 	
-		@font.draw("HP: #{@player_hp}", 300+50, 5, 1)
+		@font.draw("HP: #{@player_hp}", 420, 5, 1)
 
 		@font.draw("Location: #{@location}", 20,5,1)
 
-		@font.draw("Level: #{@player_level}", 220+50 ,5,1)
+		@font.draw("Level: #{@player_level}", 320 ,5,1)
 
-		@font.draw("Exp: #{@player_exp}", 160+25, 5, 1)
+		@font.draw("Exp: #{@player_exp}", 200, 5, 1)
 
-		@font.draw("Inventory: #{@player_in}", 400+50,5,1)
+		@font.draw("Inventory: #{@player_in}", 550,5,1)
 
 		menu
 
@@ -51,7 +45,7 @@ class GraphicInterface
 		if @window.button_down?(Gosu::KbTab) 
 			@inventory.draw(200,150,5)
 		elsif @window.button_down?(Gosu::KbEscape)
-			@save_and_quit_menu.draw(100,75,5)
+			@save_and_quit_menu.draw(200,150,5)
 		end
 
 	end
