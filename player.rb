@@ -17,7 +17,7 @@ class Player
 
   def gain_exp exp
     @exp = exp
-    @exp += 1
+    @exp += 5
     return @exp
     
   end
@@ -43,12 +43,9 @@ class Player
 
   end
 
-  def update exp, level
+  def update 
 
-    gain_exp(exp)
-    level_up(exp, level)
     
-  
   end
 
   def draw position_x, position_y 

@@ -16,16 +16,16 @@ class Game
 		@height = height
 		
 
-		@backdrop = Background.new(0, 0, @window)
+		@backdrop = Background.new(-300, -1000, @window)
 		
 		@player = Player.new
 		@player.level = 1
 		@player.exp = 0
 		@player.hp = 20
 
-		@objects = Objects.new
+		#@objects = Objects.new
 
-		@gui = GraphicInterface.new(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)
+		@gui = GraphicInterface.new
 
 	end
 
@@ -33,12 +33,13 @@ class Game
 
 		@player.exp = @player.gain_exp(@player.exp)
 		reqXp = 100
-		if @player.exp >= reqXp
+		if @player.exp > reqXp
 			@player.level_up(@player.level)
 			@player.exp = 0
-			reqXp *= 1.40
+			reqXp += 50
+			return reqXp
 		end
-		puts "exp = #{@player.exp}  level = #{@player.level}" 
+		
 		
 		@backdrop.update
 
@@ -49,7 +50,7 @@ class Game
 	def draw
 
 
-		@gui.draw
+		@gui.draw(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)
 
 		@backdrop.draw
 
