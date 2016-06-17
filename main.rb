@@ -7,7 +7,7 @@ class GameWindow < Gosu::Window
 	def initialize width = 800, height = 600, fullscreen = false
 		super
 
-		self.caption = "Hero of  add name of towm here          ****pre alpha****"
+		self.caption = "Hero of  add name of town here          ****pre alpha****"
 
 		@game = Game.new(self, width, height)		
 

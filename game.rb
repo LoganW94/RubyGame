@@ -32,10 +32,14 @@ class Game
 	def update
 
 		@player.exp = @player.gain_exp(@player.exp)
+		reqXp = 100
+		if @player.exp >= reqXp
+			@player.level_up(@player.level)
+			@player.exp = 0
+			reqXp *= 1.40
+		end
+		puts "exp = #{@player.exp}  level = #{@player.level}" 
 		
-		@player.level = @player.level_up(@player.exp, @player.level)
-		
-
 		@backdrop.update
 
 		@gui.update

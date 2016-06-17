@@ -17,9 +17,9 @@ class Player
 
   def gain_exp exp
     @exp = exp
-    @exp + 1
+    @exp += 1
     return @exp
-
+    
   end
 
   def delta_health
@@ -27,13 +27,13 @@ class Player
 
   end
 
-  def level_up exp, level
-    @exp = exp
+  def level_up level
+  
     @level = level
-    if @exp  >= 100
-      @level += 1
-      return @level
-    end
+
+    @level += 1  
+      
+    return @level
 
   end
 
@@ -43,9 +43,10 @@ class Player
 
   end
 
-  def update 
+  def update exp, level
 
-  
+    gain_exp(exp)
+    level_up(exp, level)
     
   
   end
