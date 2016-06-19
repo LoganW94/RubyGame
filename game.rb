@@ -3,7 +3,7 @@ require 'gosu'
 require_relative 'background'
 require_relative 'player'
 require_relative 'gui'
-require_relative 'objects'
+#require_relative 'objects'
 
 
 
@@ -17,13 +17,13 @@ class Game
 		
 
 		@backdrop = Background.new(-300, -1000, @window)
-		
+=begin	
 		@player = Player.new
 		@player.level = 1
 		@player.exp = 0
 		@player.hp = 20
 		@player.reqExp = 200
-
+=end
 		#@objects = Objects.new
 
 		@gui = GraphicInterface.new
@@ -32,6 +32,21 @@ class Game
 
 	def update
 
+		is_player = false
+		test_tick = 0
+
+		if is_player == false
+			@player = Player.new
+			@player.level = 1
+			@player.exp = 0
+			@player.hp = 20
+			@player.reqExp = 200
+
+			is_player = true
+			test_tick +=1
+		end
+
+		puts test_tick
 
 		# update player level and exp.
 		# add other stat updates to this asap
@@ -44,10 +59,12 @@ class Game
 				expDiff = @player.exp - @player.reqExp
 			end
 			@player.level_up(@player.level)
-			@player.exp = 0 + expDiff.to_int
+			@player.exp = 0 + expDiff.to_i
 			@player.reqExp = @player.incriment_reqexp(@player.reqExp)
 
 		end
+
+
 				
 		@backdrop.update
 

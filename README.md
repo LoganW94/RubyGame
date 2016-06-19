@@ -14,6 +14,7 @@ TODO
 
 in no specific order. NOTE that some things on this list are more list wish items than planned implimentations
 
+
 Take refresher for Ruby
 
 Make a object class to handle game objects
@@ -47,10 +48,6 @@ Chest
 Gold chest
 
 Demon chest
-
-Copper coin
-
-Silver coin
 
 Gold coin
 
