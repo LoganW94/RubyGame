@@ -18,7 +18,7 @@ class Player
 
   def gain_exp exp
     @exp = exp
-    @exp += 0
+    @exp += 1
     return @exp
     
   end
@@ -32,7 +32,7 @@ class Player
 
     @reqExp =reqExp
 
-    @reqExp *= 1.20
+    @reqExp *= 2.2
 
     return @reqExp
 
@@ -55,7 +55,7 @@ class Player
   end
 
   def update 
-    
+
 
     
   end

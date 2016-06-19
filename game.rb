@@ -14,42 +14,26 @@ class Game
 		@window = window
 		@width = width
 		@height = height
-		
 
 		@backdrop = Background.new(-300, -1000, @window)
-=begin	
+		@gui = GraphicInterface.new
+
+
+	
 		@player = Player.new
 		@player.level = 1
 		@player.exp = 0
 		@player.hp = 20
 		@player.reqExp = 200
-=end
-		#@objects = Objects.new
-
-		@gui = GraphicInterface.new
 
 	end
 
-	def update
-
-		is_player = false
-		test_tick = 0
-
-		if is_player == false
-			@player = Player.new
-			@player.level = 1
-			@player.exp = 0
-			@player.hp = 20
-			@player.reqExp = 200
-
-			is_player = true
-			test_tick +=1
-		end
-
-		puts test_tick
+	def update 
+		
 
 		# update player level and exp.
 		# add other stat updates to this asap
+		# move to player class at some point
 
 		@player.exp = @player.gain_exp(@player.exp)
 		
@@ -67,7 +51,7 @@ class Game
 
 				
 		@backdrop.update
-
+		
 		
 	end
 
