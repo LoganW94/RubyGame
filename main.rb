@@ -26,11 +26,7 @@ class GameWindow < Gosu::Window
 
 		if $game_state == 1
 			@game.update
-		end
-
-
-
-		
+		end	
 	
 
 	end

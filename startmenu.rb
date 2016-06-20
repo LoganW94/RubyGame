@@ -25,12 +25,12 @@ class StartMenu
 
 		#add animations for option select
 
-		if @window.button_down?(Gosu::KbDown)
-        	@pos_y += 80  
-   		end
-
    		if @window.button_down?(Gosu::KbUp)
         	@pos_y -= 80  
+   		end
+
+		if @window.button_down?(Gosu::KbDown)
+        	@pos_y += 80  
    		end
 
    		if @window.button_down?(Gosu::KbReturn)
