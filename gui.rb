@@ -44,8 +44,8 @@ class GraphicInterface
 
 		if @window.button_down?(Gosu::KbTab) 
 			@inventory.draw(200,150,5)
-		elsif @window.button_down?(Gosu::KbEscape)
-			@save_and_quit_menu.draw(200,150,5)
+		#elsif @window.button_down?(Gosu::KbEscape)
+		#	@save_and_quit_menu.draw(200,150,5)
 		end
 
 	end

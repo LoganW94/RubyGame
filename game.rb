@@ -48,7 +48,9 @@ class Game
 
 		end
 
-
+		if @window.button_down?(Gosu::KbEscape)
+   			return  $game_state = 0
+   		end
 				
 		@backdrop.update
 		
