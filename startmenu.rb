@@ -14,23 +14,25 @@ class StartMenu
 		@pos_x = 110
 		@pos_y = 140
 		@depth = 6
-
+		@total_time = 0
 		
-		@start_menu = Gosu::Image.new("graphics/start_menu.bmp")
 		@dot = Gosu::Image.new("graphics/dot.bmp")
-		@font = Gosu::Font.new(20)
+		@font = Gosu::Font.new(70)
 	end
 
 
-	def update
+	def update(continue)
 
-		#add animations for option select
-		
+		@continue = continue
+		#add animations for option select	
+
+		@total_time += 16.0
+		@wiggle = Math.sin(@total_time * 0.01) * 5
 
 
 		if @window.button_down?(Gosu::KbDown)
 			if @pos_y == @new_game_pos
-				@pos_y = @load_pos
+				@pos_y = @load_pos				
 				return @pos_y
 			elsif @pos_y  == @load_pos
 				@pos_y = @quit_pos
@@ -63,15 +65,18 @@ class StartMenu
 
 	def draw
 
-		#@font.draw("Load", @pos_x, @load_pos,@depth + 1)
-		#@font.draw("Quit", @pos_x, @quit_pos,@depth + 1)
-		#@font.draw("New Game", @pos_x, @new_game_pos,@depth + 1)
+		@font.draw("Load", @pos_x+10, @load_pos-32, @depth + 1)
+		@font.draw("Quit", @pos_x+10, @quit_pos-32, @depth + 1)
 
-		@dot.draw(@pos_x, @pos_y, @depth)
-		@dot.draw(@pos_x - 10, @pos_y, @depth)
-		@dot.draw(@pos_x - 20, @pos_y, @depth)
+		if @continue == false
+			@font.draw("New Game", @pos_x+10, @new_game_pos-32, @depth + 1)
+		elsif @continue == true
+			@font.draw("Resume", @pos_x+10, @new_game_pos-32, @depth + 1)
+		end		
 
-		@start_menu.draw(0,0,5)
+		@dot.draw(@pos_x, @pos_y + @wiggle, @depth)
+		@dot.draw(@pos_x - 10, @pos_y+ @wiggle, @depth)
+		@dot.draw(@pos_x - 20, @pos_y+ @wiggle, @depth)
 
 
 	end

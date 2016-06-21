@@ -29,7 +29,7 @@ class Game
 	end
 
 	def update 
-		
+		$continue = true
 
 		# update player level and exp.
 		# add other stat updates to this asap
@@ -49,7 +49,7 @@ class Game
 		end
 
 		if @window.button_down?(Gosu::KbEscape)
-   			return  $game_state = 0
+   			return  $game_state = 0, $continue
    		end
 				
 		@backdrop.update
