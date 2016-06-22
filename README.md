@@ -26,9 +26,6 @@ Redesign player and create sprite sheet. Player design should be similar to  ear
 
 
 
-
-
-
 Get location name system working
 
 Create player inventory
