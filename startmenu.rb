@@ -30,7 +30,7 @@ class StartMenu
 		@wiggle = Math.sin(@total_time * 0.01) * 5
 
 
-		if @window.button_down?(Gosu::KbDown)
+		if @new_press && @window.button_down?(Gosu::KbDown)
 			if @pos_y == @new_game_pos
 				@pos_y = @load_pos				
 				return @pos_y
@@ -41,7 +41,7 @@ class StartMenu
 
 		end
 
-		if @window.button_down?(Gosu::KbUp)
+		if  @new_press && @window.button_down?(Gosu::KbUp)
 			if @pos_y == @quit_pos
 			   	@pos_y = @load_pos
 			   	return @pos_y
@@ -51,6 +51,8 @@ class StartMenu
 			end
 		end
 
+		
+
    		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos
         	return  $game_state = 1
    		end
@@ -59,7 +61,7 @@ class StartMenu
         	return  $game_state = -1
         end
 
-
+        @new_press = !@window.button_down?(Gosu::KbDown)
 	end 
 
 
