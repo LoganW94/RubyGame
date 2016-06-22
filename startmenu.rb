@@ -15,6 +15,7 @@ class StartMenu
 		@pos_y = 140
 		@depth = 6
 		@total_time = 0
+		@new_press = false
 		
 		@dot = Gosu::Image.new("graphics/dot.bmp")
 		@font = Gosu::Font.new(70)
@@ -25,12 +26,13 @@ class StartMenu
 
 		@continue = continue
 		#add animations for option select	
-
+		@new_press = false
 		@total_time += 16.0
 		@wiggle = Math.sin(@total_time * 0.01) * 5
 
 
 		if @new_press && @window.button_down?(Gosu::KbDown)
+			@new_press = !@window.button_down?(Gosu::KbDown)
 			if @pos_y == @new_game_pos
 				@pos_y = @load_pos				
 				return @pos_y
@@ -42,6 +44,7 @@ class StartMenu
 		end
 
 		if  @new_press && @window.button_down?(Gosu::KbUp)
+			@new_press = !@window.button_down?(Gosu::KbDown)
 			if @pos_y == @quit_pos
 			   	@pos_y = @load_pos
 			   	return @pos_y
@@ -61,7 +64,7 @@ class StartMenu
         	return  $game_state = -1
         end
 
-        @new_press = !@window.button_down?(Gosu::KbDown)
+       # @new_press = !@window.button_down?(Gosu::KbDown)
 	end 
 
 
