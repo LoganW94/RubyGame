@@ -20,8 +20,7 @@ class Window < Gosu::Window
 
 	def update
 
-		# pass other game states through to here
-		# have the main update manage the start menu, game, pause menu, and inventory menu
+		# have the main update manage the start menu, game, and inventory menu
 
 		if $game_state ==0
 			@start.update($continue)

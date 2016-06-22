@@ -61,6 +61,12 @@ class StartMenu
 
         @new_press_up = !@window.button_down?(Gosu::KbDown)
         @new_press_down = !@window.button_down?(Gosu::KbUp)
+
+        if @continue == false
+        	@disp = "New Game"
+        elsif @continue == true
+        	@disp = "Resume"
+        end		
 	end 
 
 
@@ -68,12 +74,7 @@ class StartMenu
 
 		@font.draw("Load", @pos_x+10, @load_pos-32, @depth + 1)
 		@font.draw("Quit", @pos_x+10, @quit_pos-32, @depth + 1)
-
-		if @continue == false
-			@font.draw("New Game", @pos_x+10, @new_game_pos-32, @depth + 1)
-		elsif @continue == true
-			@font.draw("Resume", @pos_x+10, @new_game_pos-32, @depth + 1)
-		end		
+		@font.draw("#{@disp}", @pos_x+10, @new_game_pos-32, @depth + 1)		
 
 		@dot.draw(@pos_x, @pos_y + @wiggle, @depth)
 		@dot.draw(@pos_x - 10, @pos_y+ @wiggle, @depth)
