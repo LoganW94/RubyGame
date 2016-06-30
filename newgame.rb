@@ -28,8 +28,10 @@ class NewGame
 		@total_time += 16.0
 		@wiggle = Math.sin(@total_time * 0.01) * 5
 
-		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos
+		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos && @new_press_return
         	return  $game_state = 1, $continue = true
+        elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @back_pos && @new_press_return
+        	return  $game_state = 0, $continue = false	
    		end
 
    		if @new_press_up && @window.button_down?(Gosu::KbDown)
@@ -48,6 +50,7 @@ class NewGame
 
 		@new_press_up = !@window.button_down?(Gosu::KbDown)
         @new_press_down = !@window.button_down?(Gosu::KbUp)
+        @new_press_return = !@window.button_down?(Gosu::KbReturn)
 	end
 
 	def draw

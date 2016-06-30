@@ -24,7 +24,7 @@ class Game
 		@player.level = 1
 		@player.exp = 0
 		@player.hp = 20
-		@player.reqExp = 200
+		@player.reqExp = 50
 
 	end
 
@@ -42,9 +42,9 @@ class Game
 			if @player.exp > @player.reqExp
 				expDiff = @player.exp - @player.reqExp
 			end
-			@player.level_up(@player.level)
+			@player.level_up(@player.level, @player.hp, @player.exp)
 			@player.exp = 0 + expDiff.to_i
-			@player.reqExp = @player.incriment_reqexp(@player.reqExp)
+			@player.reqExp = @player.incriment_reqexp(@player.reqExp, @player.level)
 
 		end
 

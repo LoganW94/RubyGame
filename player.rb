@@ -28,23 +28,28 @@ class Player
 
   end
 
-  def incriment_reqexp reqExp
+  def incriment_reqexp reqExp, playerlevel
 
     @reqExp =reqExp
+    @playerlevel = playerlevel
 
-    @reqExp *= 2.2
+    @reqExp *= 1.25
 
     return @reqExp
 
   end
 
-  def level_up level
+  def level_up level, hp, exp
   
     @level = level
+    @hp = hp
+    @exp = exp
 
     @level += 1  
-      
-    return @level
+    @hp += rand(1..10)
+    puts "Player level: #{level} Exp: #{@exp}"
+
+    return @level, @hp
 
   end
 
