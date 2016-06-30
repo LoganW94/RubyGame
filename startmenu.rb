@@ -52,12 +52,11 @@ class StartMenu
 		
 
    		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos
-        	return  $game_state = 1
+        	return  $game_state = 2, $continue = true
+        elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @quit_pos
+        	return  $game_state = -1
    		end
    		
-   		if @window.button_down?(Gosu::KbReturn) && @pos_y == @quit_pos
-        	return  $game_state = -1
-        end
 
         @new_press_up = !@window.button_down?(Gosu::KbDown)
         @new_press_down = !@window.button_down?(Gosu::KbUp)

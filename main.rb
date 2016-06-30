@@ -2,6 +2,7 @@ require 'gosu'
 
 require_relative 'game'
 require_relative 'startmenu'
+require_relative 'newgame'
 
 class Window < Gosu::Window
 
@@ -14,6 +15,7 @@ class Window < Gosu::Window
 		self.caption = "add name of game here          ****pre alpha****"
 		@start = StartMenu.new(self)
 		@game = Game.new(self, width, height)
+		@new = NewGame.new(self)
 
 
 	end
@@ -26,6 +28,8 @@ class Window < Gosu::Window
 			@start.update($continue)
 		elsif $game_state == 1
 			@game.update
+		elsif $game_state == 2
+			@new.update	
 		elsif $game_state == -1
 			self.close		
 		end	
@@ -37,7 +41,9 @@ class Window < Gosu::Window
 		if $game_state == 0
 			@start.draw
 		elsif $game_state == 1
-			@game.draw		
+			@game.draw	
+		elsif $game_state == 2
+			@new.draw			
 		end		
 
 	end
