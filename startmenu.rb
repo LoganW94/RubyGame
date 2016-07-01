@@ -15,7 +15,7 @@ class StartMenu
 		@pos_y = 140
 		@depth = 6
 		@total_time = 0
-		@new_press_up, @new_press_down = false
+		@new_press_up, @new_press_down, @new_press_return = false
 		
 		@dot = Gosu::Image.new("graphics/dot.bmp")
 		@font = Gosu::Font.new(70)
@@ -51,15 +51,20 @@ class StartMenu
 		end
 		
 
-   		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos
+   		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos && @new_press_return
         	return  $game_state = 2, $continue = true
-        elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @quit_pos
-        	return  $game_state = -1
+        elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @quit_pos && @new_press_return
+        	return  $game_state = -1 
+        elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @load_pos && @new_press_return && @continue == false
+        	return  $game_state = 3	
+        elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @load_pos && @new_press_return && @continue == true
+        	puts "Saves Game"		
    		end
    		
 
         @new_press_up = !@window.button_down?(Gosu::KbDown)
         @new_press_down = !@window.button_down?(Gosu::KbUp)
+        @new_press_return = !@window.button_down?(Gosu::KbReturn)
 
         if @continue == false
         	@disp = "New Game"

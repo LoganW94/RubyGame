@@ -30,7 +30,6 @@ class Player
 
     @hp += @delta_hp
 
-    return @hp
   end
 
   def incriment_reqexp reqExp, playerlevel
@@ -39,9 +38,6 @@ class Player
     @playerlevel = playerlevel
 
     @reqExp *= 1.25
-
-    #return @reqExp
-
   end
 
   def level_up level, hp, exp
@@ -52,8 +48,7 @@ class Player
 
     @level += 1  
     @hp += rand(1..10)
-    puts "Player level: #{level} Exp: #{@exp}"
-
+    
     return @level, @hp
 
   end

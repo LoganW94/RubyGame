@@ -2,15 +2,14 @@ require 'gosu'
 
 	
 
-class NewGame
+class LoadMenu
 
-	$game_state = 2
+	$game_state = 3
 
-	
 	def initialize (window)
 
 		@window = window
-		@new_game_pos = 140
+		@load_pos = 140
 		@back_pos = 300
 		
 		@pos_x = 110
@@ -31,15 +30,15 @@ class NewGame
 		@total_time += 16.0
 		@wiggle = Math.sin(@total_time * 0.01) * 5
 
-		if @window.button_down?(Gosu::KbReturn) && @pos_y == @new_game_pos && @new_press_return
-        	return  $game_state = 1, $continue = true
+		if @window.button_down?(Gosu::KbReturn) && @pos_y == @load_pos && @new_press_return
+        	puts "load"
         elsif @window.button_down?(Gosu::KbReturn) && @pos_y == @back_pos && @new_press_return
         	return  $game_state = 0, $continue = false	
    		end
 
    		if @new_press_up && @window.button_down?(Gosu::KbDown)
 		
-			if @pos_y == @new_game_pos
+			if @pos_y == @load_pos
 				@pos_y = @back_pos								
 			end
 		end
@@ -47,7 +46,7 @@ class NewGame
 		if  @new_press_down && @window.button_down?(Gosu::KbUp)
 			 
 			if @pos_y == @back_pos
-			   	@pos_y = @new_game_pos			
+			   	@pos_y = @load_pos		
 			end
 		end
 
@@ -58,7 +57,7 @@ class NewGame
 
 	def draw
 
-		@font.draw("Start New Game", @pos_x+10, @new_game_pos-32, @depth + 1)	
+		@font.draw("Load", @pos_x+10, @load_pos-32, @depth + 1)	
 		@font.draw("Back", @pos_x+10, @back_pos-32, @depth + 1)
 
 
