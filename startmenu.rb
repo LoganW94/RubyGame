@@ -63,15 +63,17 @@ class StartMenu
 
         if @continue == false
         	@disp = "New Game"
+        	@disp_ls = "Load"
         elsif @continue == true
         	@disp = "Resume"
+        	@disp_ls = "Save"
         end		
 	end 
 
 
 	def draw
 
-		@font.draw("Load", @pos_x+10, @load_pos-32, @depth + 1)
+		@font.draw("#{@disp_ls}", @pos_x+10, @load_pos-32, @depth + 1)
 		@font.draw("Quit", @pos_x+10, @quit_pos-32, @depth + 1)
 		@font.draw("#{@disp}", @pos_x+10, @new_game_pos-32, @depth + 1)		
 

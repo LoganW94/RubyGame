@@ -23,9 +23,14 @@ class Player
     
   end
 
-  def delta_health
+  def delta_health hp, delta_hp
 
+    @hp = hp
+    @delta_hp = delta_hp
 
+    @hp += @delta_hp
+
+    return @hp
   end
 
   def incriment_reqexp reqExp, playerlevel
@@ -35,7 +40,7 @@ class Player
 
     @reqExp *= 1.25
 
-    return @reqExp
+    #return @reqExp
 
   end
 
@@ -57,12 +62,6 @@ class Player
 
     return "Sword of burning"
 
-  end
-
-  def update 
-
-
-    
   end
 
   def draw position_x, position_y 
