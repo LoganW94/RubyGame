@@ -4,6 +4,8 @@ require_relative 'game'
 require_relative 'startmenu'
 require_relative 'newgame'
 require_relative 'loadmenu'
+require_relative 'menu'
+require_relative 'inputhandler'
 
 class Window < Gosu::Window
 
@@ -13,45 +15,55 @@ class Window < Gosu::Window
 	def initialize width = 800, height = 600, fullscreen = false
 		super
 		
-		self.caption = "add name of game here          ****pre alpha****"
-		@start = StartMenu.new(self)
+		self.caption = " ****pre alpha****"
+	
 		@game = Game.new(self, width, height)
-		@new = NewGame.new(self)
-		@load = LoadMenu.new(self)
+		
+		@menu = Menu.new(self)
 
-
-	end
-
-	def update
-
-		# have the main update manage the start menu, game, and inventory menu
-
-		if $game_state ==0
-			@start.update($continue)
-		elsif $game_state == 1
-			@game.update
-		elsif $game_state == 2
-			@new.update($continue)
-		elsif $game_state == 3
-			@load.update($continue)					
-		elsif $game_state == -1
-			self.close		
-		end	
+		@input = Input.new(self)
+		
 
 	end
 
-	def draw
+	def update	
+
+		@input.update(@input.enter, 
+				@input.up,
+				@input.down,
+				@input.left,
+				@input.right,
+				@input.space,
+				@input.escape)	
 
 		if $game_state == 0
-			@start.draw
+			@menu.update($continue, 
+				@input.enter, 
+				@input.up,
+				@input.down,
+				@input.left,
+				@input.right,
+				@input.escape)
 		elsif $game_state == 1
-			@game.draw				
-		elsif $game_state == 2
-			@new.draw
-		elsif $game_state == 3
-			@load.draw											
-		end		
+			@game.update(@input.up,
+				@input.down,
+				@input.left,
+				@input.right)
+		elsif $game_state == -1
+			self.close	
+		end	
 
+
+	end
+
+	def draw		
+
+		if $game_state == 0
+			@menu.draw
+		elsif $game_state == 1
+			@game.draw
+		end
+				
 	end
 
 end

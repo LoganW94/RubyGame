@@ -28,7 +28,12 @@ class Game
 
 	end
 
-	def update 
+	def update up, down, left, right
+
+      	@up = up
+      	@down = down
+     	@left = left
+      	@right = right
 		
 
 		# update player level and exp.
@@ -52,7 +57,11 @@ class Game
    			return  $game_state = 0, $continue = true
    		end
 				
-		@backdrop.update
+		@backdrop.update(
+				@up,
+				@down,
+				@left,
+				@right)
 		
 		
 	end

@@ -18,24 +18,29 @@ class Background
 
   	end
 
-   	def update
+   	def update up, down, left, right
 
+        @up = up
+        @down = down
+        @left = left
+        @right = right
+        
 
-   		if @window.button_down?(Gosu::KbLeft)     
-   		  @pos_x += 2 
-   		end    
+        if @up == true
+            @pos_y += 2  
+        end
 
-   		if @window.button_down?(Gosu::KbRight) 
-    	    @pos_x += -2        		 
-   		end
+        if @down == true 
+            @pos_y += -2  
+        end
 
-   		if @window.button_down?(Gosu::KbUp)
-        	@pos_y += 2  
-   		end
+     		if @left == true     
+     		  @pos_x += 2 
+     		end    
 
-   		if @window.button_down?(Gosu::KbDown) 
-        	@pos_y += -2 	
-   		end
+        if @right == true 
+      	    @pos_x += -2        		 
+     		end
 
   	end
 

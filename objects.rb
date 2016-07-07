@@ -4,7 +4,7 @@ require 'gosu'
 class Objects
 
 	attr_accessor :hp #health
-    attr_accessor :level 
+    attr_accessor :level #object level
     attr_accessor :str #strength
     attr_accessor :def #defense
     attr_accessor :spd #speed
