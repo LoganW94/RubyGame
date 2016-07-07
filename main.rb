@@ -1,9 +1,6 @@
 require 'gosu'
 
 require_relative 'game'
-require_relative 'startmenu'
-require_relative 'newgame'
-require_relative 'loadmenu'
 require_relative 'menu'
 require_relative 'inputhandler'
 
