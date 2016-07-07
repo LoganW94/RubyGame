@@ -21,10 +21,7 @@ class Game
 
 	
 		@player = Player.new
-		@player.level = 1
-		@player.exp = 0
-		@player.hp = 20
-		@player.reqExp = 50
+		
 
 	end
 
@@ -40,19 +37,23 @@ class Game
 		# add other stat updates to this asap
 		# move to player class at some point
 
+		@player.update(@player.level, @player.exp, @player.hp, @player.req_xp)
+
+
+=begin
 		@player.exp = @player.gain_exp(@player.exp)
 		
-		if @player.exp >= @player.reqExp 
+		if @player.exp.to_i >= @player.req_xp.to_i
 
-			if @player.exp > @player.reqExp
-				expDiff = @player.exp - @player.reqExp
+			if @player.exp.to_i > @player.req_xp.to_i
+				expDiff = @player.exp.to_i - @player.req_xp.to_i
 			end
-			@player.level_up(@player.level, @player.hp, @player.exp)
+			@player.level_up(@player.level, @player.hp)
 			@player.exp = 0 + expDiff.to_i
-			@player.reqExp = @player.incriment_reqexp(@player.reqExp, @player.level)
+			@player.req_xp = @player.incriment_reqxp(@player.req_xp.to_i)
 
 		end
-
+=end
 		if @window.button_down?(Gosu::KbEscape)
    			return  $game_state = 0, $continue = true
    		end
