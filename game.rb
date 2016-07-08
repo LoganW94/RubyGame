@@ -18,8 +18,7 @@ class Game
 		@backdrop = Background.new(-300, -1000, @window)
 		@gui = GraphicInterface.new	
 
-		@player = Player.new
-		
+		@player = Player.new		
 
 	end
 
@@ -29,11 +28,9 @@ class Game
       	@down = down
      	@left = left
       	@right = right
-      	
 		
 		@player.update
-		
-				
+						
 		@backdrop.update(
 				@up,
 				@down,
