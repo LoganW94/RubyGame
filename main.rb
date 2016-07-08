@@ -25,13 +25,7 @@ class Window < Gosu::Window
 
 	def update	
 
-		@input.update(@input.enter, 
-				@input.up,
-				@input.down,
-				@input.left,
-				@input.right,
-				@input.space,
-				@input.escape)	
+		@input.update	
 
 		if $game_state == 0
 			@menu.update($continue, 

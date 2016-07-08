@@ -19,11 +19,6 @@ class Game
 		@gui = GraphicInterface.new	
 
 		@player = Player.new
-		#@player.hp = 20
-    	#@player.exp = 0
-    	#@player.level = 1
-    	#@player.req_xp = 50
-		
 		
 
 	end
@@ -34,6 +29,7 @@ class Game
       	@down = down
      	@left = left
       	@right = right
+      	
 		
 		@player.update
 		
