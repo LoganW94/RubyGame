@@ -16,11 +16,14 @@ class Game
 		@height = height
 
 		@backdrop = Background.new(-300, -1000, @window)
-		@gui = GraphicInterface.new
+		@gui = GraphicInterface.new	
 
-
-	
 		@player = Player.new
+		#@player.hp = 20
+    	#@player.exp = 0
+    	#@player.level = 1
+    	#@player.req_xp = 50
+		
 		
 
 	end
@@ -32,31 +35,8 @@ class Game
      	@left = left
       	@right = right
 		
-
-		# update player level and exp.
-		# add other stat updates to this asap
-		# move to player class at some point
-
-		@player.update(@player.level, @player.exp, @player.hp, @player.req_xp)
-
-
-=begin
-		@player.exp = @player.gain_exp(@player.exp)
+		@player.update
 		
-		if @player.exp.to_i >= @player.req_xp.to_i
-
-			if @player.exp.to_i > @player.req_xp.to_i
-				expDiff = @player.exp.to_i - @player.req_xp.to_i
-			end
-			@player.level_up(@player.level, @player.hp)
-			@player.exp = 0 + expDiff.to_i
-			@player.req_xp = @player.incriment_reqxp(@player.req_xp.to_i)
-
-		end
-=end
-		if @window.button_down?(Gosu::KbEscape)
-   			return  $game_state = 0, $continue = true
-   		end
 				
 		@backdrop.update(
 				@up,
@@ -65,6 +45,9 @@ class Game
 				@right)
 		
 		
+		if @window.button_down?(Gosu::KbEscape)
+   			return  $game_state = 0, $continue = true
+   		end
 	end
 
 	def draw
