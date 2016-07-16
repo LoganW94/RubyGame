@@ -3,6 +3,7 @@ require 'gosu'
 require_relative 'background'
 require_relative 'player'
 require_relative 'gui'
+#require_relative 'mapgenerator'
 #require_relative 'objects'
 
 

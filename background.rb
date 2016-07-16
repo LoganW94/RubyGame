@@ -1,5 +1,7 @@
 require 'gosu'
 
+require_relative 'mapgenerator'
+
 class Background
 
 	def initialize position_x, position_y, window
@@ -7,8 +9,10 @@ class Background
     	@pos_y = position_y
     	@window = window
 
+      @is_map = false
 
     	@image = Gosu::Image.new("graphics/map.jpg", false)
+      @map = MapGen.new
     	
   	end
 
@@ -24,7 +28,11 @@ class Background
       @down = down
       @left = left
       @right = right
-        
+
+      if @is_map == false
+          @map.map_gen  
+          @is_map = true
+      end      
 
       if @up == true && @left == true
           @pos_y += 1
@@ -77,20 +85,7 @@ class Background
       elsif @right == true
           @pos_x +=-2                
       end
-=begin      
 
-      if @down == true 
-          @pos_y += -2  
-      end
-
-     	if @left == true     
-     	  @pos_x += 2 
-     	end    
-
-      if @right == true 
-          @pos_x += -2        		 
-     	end
-=end
   	end
 
   	def draw

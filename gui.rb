@@ -4,10 +4,8 @@ require_relative 'game'
 
 class GraphicInterface 
 	
-	def initialize 
-					
-		
-				
+	def initialize 	
+						
 		@font = Gosu::Font.new(20)
 
 		@inventory = Gosu::Image.new("graphics/inventory_menu.bmp")
@@ -17,6 +15,7 @@ class GraphicInterface
 	end
 
 	def draw window, player_level, player_exp, player_hp, player_in, location
+		
 		@window = window
 		@player_level = player_level
 		@player_exp = player_exp
@@ -44,8 +43,6 @@ class GraphicInterface
 
 		if @window.button_down?(Gosu::KbTab) 
 			@inventory.draw(200,150,5)
-		#elsif @window.button_down?(Gosu::KbEscape)
-		#	@save_and_quit_menu.draw(200,150,5)
 		end
 
 	end
