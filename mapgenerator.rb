@@ -13,10 +13,8 @@ class MapGen
 
 
 		#init arrays
-		@cell_column  = Array.new(10, "t")
-		@cell_row = Array.new(10)
-		@map_row = Array.new(5)
-		@map_column = Array.new(5)
+		@map_row = Array.new(200)
+		@map_column = Array.new(200)
 
 	end
 
@@ -29,46 +27,17 @@ class MapGen
 
 	def map_gen
 
-		@test = Array.new
-		@test_array = Array.new
+		@test_row = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		@test = Array.new(20)
 		
-		@test_array.push(@test.push(tile_gen),
-						@test.push(tile_gen),
-						@test.push(tile_gen),
-						@test.push(tile_gen),
-						@test.push(tile_gen)
-						)
-
-		print @test_array
-
-
-
-=begin
-		@map_column.each do |c|
-			@map_row.each do |r|
-				@cell_column.each do |c|
-					@cell_row.each do |tile|
-						tile = Tile.new
-						@cell_row.push(tile)
-					end
-					@ell_column.push(cell_row)
-				end	
-				@map_row.push(cell_column)
-			end
-			@map_column.push(@map_row)
+		@test.each do |r|
+			#r = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+			@test.push(@test_row)
+			
 		end
 
-		@map_column.each do |c|
-			@map_row.each do |r|
-				@cell_column.each do |c|
-					@cell_row.each do |tile|
-					puts tile
-					end
-				end	
-			end
-		end
-
-=end		
+		puts @test
+	
 	end 
 
 

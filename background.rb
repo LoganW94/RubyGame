@@ -30,7 +30,8 @@ class Background
       @right = right
 
       if @is_map == false
-          @map.map_gen  
+          @map.map_gen 
+          puts "new map" 
           @is_map = true
       end      
 
