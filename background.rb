@@ -15,6 +15,7 @@ class Background
       
     	@image = Gosu::Image.new("graphics/map.jpg", false)
       @map = MapGen.new
+
     	
   	end
 
@@ -32,10 +33,19 @@ class Background
       @right = right
 
       if @is_map == false
-          @new_map =@map.map_gen 
-          print @map_one 
+          @map.map_gen  
+
+          @map.each do |i|
+            i.length.times do |x|
+              print "#{i[x].val} "
+            end 
+            print "\n"
+          end 
+
           @is_map = true
-      end      
+      end  
+
+
 
       if @up == true && @left == true
           @pos_y += 1
@@ -95,7 +105,7 @@ class Background
   		
    	 	#@image.draw(@pos_x, @pos_y, 0)
 
-      @map.draw(@pos_x, @pos_y, @pos_x_init)
+      @map.draw( @pos_x, @pos_y, @pos_x_init)
 
  	end
 

@@ -4,7 +4,7 @@ require_relative 'tile'
 
 class MapGen
 
-	#attr_accessor :map
+	attr_accessor :map
 
 	
 	def initialize 
@@ -19,36 +19,16 @@ class MapGen
 
 	end
 
-	def map_gen
-=begin
-		@map.each do |i|
-			i.each do |x|
-				x = Tile.new
-				#print "#{x.val} "
-			end
-			#print "\n"
-		end
-		
-=end
-		
-
-		@map.each do |i|
-
-			i.length.times do |x|
-				i[x] = Tile.new
-				
-			end	
-			
-		end	
+	def map_gen		
 
 		@map.each do |i|
 			i.length.times do |x|
-				print "#{x} "
-			end	
-			print "\n"
+				i[x] = Tile.new				
+			end			
 		end	
-
 		
+
+	return @map
 	end 
 
 
@@ -56,15 +36,23 @@ class MapGen
 	def draw pos_x, pos_y, pos_x_init
 
 		@map.each do |i|
-	      	i.each do |x|
+            i.length.times do |x|
+              print "#{i[x].val} "
+            end 
+            print "\n"
+        end 
 
-	      		if x == 0
+
+		@map.each do |i|
+	      	i.length.times do |x|
+
+	      		if i[x].val == 0
 	      			@tile.draw(pos_x, pos_y, 0)
-	      		elsif x == 1
+	      		elsif i[x].val == 1
 	      			@tile_dirt.draw(pos_x, pos_y, 0)
-	      		elsif x == 2
+	      		elsif i[x].val == 2
 	      			@tile_water.draw(pos_x, pos_y, 0)
-	      		elsif x == 3
+	      		elsif i[x].val == 3
 	      			@tile_rock.draw(pos_x, pos_y, 0)
 	      		else 
 	      			@tile_err.draw(pos_x, pos_y, 0)
