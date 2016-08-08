@@ -6,31 +6,19 @@ class MapGen
 
 	
 	def initialize 
-		#so far just reference for me to get an idea of scale
-		map_size = 4800
-		tile_size = 16
-		cell_size = 192
-
-
-		#init arrays
-#		@map_row = Array.new(200)
-#		@map_column = Array.new(200)
-
-	end
-
-	def temp_tile_gen
-
-		val = rand(0..5)
-
-	end
-
-
-	def map_gen
 
 		@map = Array.new(100) { Array.new(100) }
+
+		@tile = Gosu::Image.new("graphics/tile.png", false)
+		@tile_dirt = Gosu::Image.new("graphics/tile_dirt.png", false)
+		@tile_water = Gosu::Image.new("graphics/tile_water.png", false)
+		@tile_rock = Gosu::Image.new("graphics/tile_rock.png", false)
+		@tile_err = Gosu::Image.new("graphics/tile_err.png", false)
+
+	end
+
+	def map_gen
 		
-
-
 		@map.each do |i|
 
 			i.each do |x|
@@ -38,18 +26,37 @@ class MapGen
 				print "#{x.val} "
 			end	
 			print "\n"
-		end
-
-		return @map		
-	
+		end	
 	
 	end 
 
 
 
-	def draw
+	def draw map, pos_x, pos_y, pos_x_init
+		tick = 0
 
-	end 
+		@map.each do |i|
+	      	i.each do |x|
 
+	      		if x == 0
+	      			@tile.draw(pos_x, pos_y, 0)
+	      		elsif x == 1
+	      			@tile_dirt.draw(pos_x, pos_y, 0)
+	      		elsif x == 2
+	      			@tile_water.draw(pos_x, pos_y, 0)
+	      		elsif x == 3
+	      			@tile_rock.draw(pos_x, pos_y, 0)
+	      		else 
+	      			@tile_err.draw(pos_x, pos_y, 0)
+	      		end						
+	      		pos_x += 16
+	      	end 
+	      pos_x = pos_x_init
+	      pos_y += 16
+	      
+	    end
+	    
+	end
 
+	
 end

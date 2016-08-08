@@ -8,7 +8,7 @@ class Tile
 
 	def initialize 
 
-		@val = rand(0..5)
+		@val = rand(0..3)
 		
 	end
 

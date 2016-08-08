@@ -7,10 +7,12 @@ class Background
 	def initialize position_x, position_y, window
 		  @pos_x = position_x
     	@pos_y = position_y
+      @pos_x_init = @pos_x
     	@window = window
 
       @is_map = false
 
+      
     	@image = Gosu::Image.new("graphics/map.jpg", false)
       @map = MapGen.new
     	
@@ -30,8 +32,8 @@ class Background
       @right = right
 
       if @is_map == false
-          @map.map_gen 
-          puts "new map" 
+          @new_map = @map.map_gen 
+          print @map_one 
           @is_map = true
       end      
 
@@ -91,7 +93,9 @@ class Background
 
   	def draw
   		
-   	 	@image.draw(@pos_x, @pos_y, 0)
+   	 	#@image.draw(@pos_x, @pos_y, 0)
+
+      @map.draw(@new_map, @pos_x, @pos_y, @pos_x_init)
 
  	end
 
