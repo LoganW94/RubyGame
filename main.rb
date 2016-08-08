@@ -19,7 +19,10 @@ class Window < Gosu::Window
 		@menu = Menu.new(self)
 
 		@input = Input.new(self)
-		
+
+
+		# Yep. Global variables are generally bad form. What I would do is use a class variable (@@state = 0) and then you can just call menu.game_state.
+
 
 	end
 

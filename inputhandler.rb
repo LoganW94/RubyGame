@@ -3,13 +3,7 @@ require 'gosu'
 
 class Input
 
-	attr_accessor :enter
-	attr_accessor :up
-	attr_accessor :down
-	attr_accessor :left
-	attr_accessor :right
-	attr_accessor :space
-	attr_accessor :escape
+	attr_accessor :enter, :up, :down, :left, :right, :space, :escape
 
 	
 	def initialize window
