@@ -4,6 +4,8 @@ require_relative 'tile'
 
 class MapGen
 
+	#attr_accessor :map
+
 	
 	def initialize 
 
@@ -18,22 +20,40 @@ class MapGen
 	end
 
 	def map_gen
-		
+=begin
 		@map.each do |i|
-
 			i.each do |x|
 				x = Tile.new
-				print "#{x.val} "
+				#print "#{x.val} "
+			end
+			#print "\n"
+		end
+		
+=end
+		
+
+		@map.each do |i|
+
+			i.length.times do |x|
+				i[x] = Tile.new
+				
+			end	
+			
+		end	
+
+		@map.each do |i|
+			i.length.times do |x|
+				print "#{x} "
 			end	
 			print "\n"
 		end	
-	
+
+		
 	end 
 
 
 
-	def draw map, pos_x, pos_y, pos_x_init
-		tick = 0
+	def draw pos_x, pos_y, pos_x_init
 
 		@map.each do |i|
 	      	i.each do |x|

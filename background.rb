@@ -32,7 +32,7 @@ class Background
       @right = right
 
       if @is_map == false
-          @new_map = @map.map_gen 
+          @new_map =@map.map_gen 
           print @map_one 
           @is_map = true
       end      
@@ -95,7 +95,7 @@ class Background
   		
    	 	#@image.draw(@pos_x, @pos_y, 0)
 
-      @map.draw(@new_map, @pos_x, @pos_y, @pos_x_init)
+      @map.draw(@pos_x, @pos_y, @pos_x_init)
 
  	end
 
