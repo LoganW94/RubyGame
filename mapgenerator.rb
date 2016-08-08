@@ -10,6 +10,7 @@ class MapGen
 	def initialize 
 
 		@map = Array.new(100) { Array.new(100) }
+		
 
 		@tile = Gosu::Image.new("graphics/tile.png", false)
 		@tile_dirt = Gosu::Image.new("graphics/tile_dirt.png", false)
@@ -33,17 +34,11 @@ class MapGen
 
 
 
-	def draw pos_x, pos_y, pos_x_init
-
-		@map.each do |i|
-            i.length.times do |x|
-              print "#{i[x].val} "
-            end 
-            print "\n"
-        end 
+	def draw map, pos_x, pos_y, pos_x_init
 
 
-		@map.each do |i|
+
+		map.each do |i|
 	      	i.length.times do |x|
 
 	      		if i[x].val == 0
