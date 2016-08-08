@@ -13,12 +13,12 @@ class MapGen
 
 
 		#init arrays
-		@map_row = Array.new(200)
-		@map_column = Array.new(200)
+#		@map_row = Array.new(200)
+#		@map_column = Array.new(200)
 
 	end
 
-	def tile_gen
+	def temp_tile_gen
 
 		val = rand(0..5)
 
@@ -27,16 +27,21 @@ class MapGen
 
 	def map_gen
 
-		@test_row = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-		@test = Array.new(20)
+		@map = Array.new(100) { Array.new(100) }
 		
-		@test.each do |r|
-			#r = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-			@test.push(@test_row)
-			
+
+
+		@map.each do |i|
+
+			i.each do |x|
+				x = Tile.new
+				print "#{x.val} "
+			end	
+			print "\n"
 		end
 
-		puts @test
+		return @map		
+	
 	
 	end 
 
