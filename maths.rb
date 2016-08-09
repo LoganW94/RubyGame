@@ -13,7 +13,7 @@ class Maths
      	@left = left
      	@right = right
      	
-     	puts "X 1: #{x}"
+     	
       	if @left == true
     		x += 1
     		@left = false
@@ -23,7 +23,7 @@ class Maths
     		x += -1
     		@right = false
     	end
-    	puts "X 2: #{x}"
+    	
     	return x
     	
 
@@ -47,7 +47,7 @@ class Maths
     		y += -1
     		@down = false
     	end
-		#puts "Y: #{y}"
+	
     	return y
 
 	end
