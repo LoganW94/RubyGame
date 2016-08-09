@@ -12,7 +12,7 @@ class Window < Gosu::Window
 	def initialize width = 800, height = 600, fullscreen = false
 		super
 		
-		self.caption = " ****pre alpha****"
+		self.caption = " ****pre pre pre pre prealpha****"
 	
 		@game = Game.new(self, width, height)
 		

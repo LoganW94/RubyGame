@@ -29,14 +29,13 @@ class MapGen
 		end	
 		
 
-	return @map
+		return @map
 	end 
 
 
+	def draw map, pos_x, pos_y
 
-	def draw map, pos_x, pos_y, pos_x_init
-
-
+		pos_x_init = pos_x
 		map.each do |i|
 	      	i.length.times do |x|
 
@@ -53,6 +52,7 @@ class MapGen
 	      		end						
 	      		pos_x += 16
 	      	end 
+
 	      pos_x = pos_x_init
 	      pos_y += 16
 	      

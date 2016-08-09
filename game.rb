@@ -3,6 +3,7 @@ require 'gosu'
 require_relative 'background'
 require_relative 'player'
 require_relative 'gui'
+require_relative 'maths'
 #require_relative 'mapgenerator'
 #require_relative 'objects'
 
@@ -15,9 +16,12 @@ class Game
 		@window = window
 		@width = width
 		@height = height
+		@pos_x = 50
+		@pos_y = 50	
 
-		@backdrop = Background.new(-300, -1000, @window)
-		@gui = GraphicInterface.new	
+		@backdrop = Background.new( @pos_x, @pos_y, @window)
+		@gui = GraphicInterface.new
+		@math = Maths.new	
 
 		@player = Player.new		
 
@@ -25,19 +29,14 @@ class Game
 
 	def update up, down, left, right
 
-      	@up = up
-      	@down = down
-     	@left = left
-      	@right = right
 		
-		@player.update
-						
-		@backdrop.update(
-				@up,
-				@down,
-				@left,
-				@right)
+		@player.update					
 		
+		@pos_x = @math.move_x(left, right, @pos_x)
+		
+		@pos_y = @math.move_y(up, down, @pos_y)
+		
+		@backdrop.update
 		
 		if @window.button_down?(Gosu::KbEscape)
    			return  $game_state = 0, $continue = true
@@ -48,7 +47,7 @@ class Game
 
 		@gui.draw(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)
 
-		@backdrop.draw
+		@backdrop.draw(@pos_x, @pos_y)
 
 		@player.draw(@width/2, @height/2)
 
