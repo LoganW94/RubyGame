@@ -25,3 +25,5 @@ key
 	> objects
 		+
 		+
+	> Main 
+		+ change global variable to Class @@Variable

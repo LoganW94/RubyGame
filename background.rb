@@ -11,7 +11,6 @@ class Background
     	@window = window
 
       @is_map = false
-
       
     	@image = Gosu::Image.new("graphics/map.jpg", false)
       @map = MapGen.new
@@ -44,9 +43,7 @@ class Background
           end 
 
           @is_map = true
-      end  
-
-
+      end
 
       if @up == true && @left == true
           @pos_y += 1

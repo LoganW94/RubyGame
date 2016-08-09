@@ -37,7 +37,6 @@ class MapGen
 	def draw map, pos_x, pos_y, pos_x_init
 
 
-
 		map.each do |i|
 	      	i.length.times do |x|
 

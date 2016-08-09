@@ -4,10 +4,8 @@ require 'gosu'
 
 class Player
 
-    attr_accessor :hp
-    attr_accessor :exp
-    attr_accessor :level
-    attr_accessor :req_xp
+    attr_accessor :hp, :exp, :level, :req_xp
+
 
 	def initialize    
 

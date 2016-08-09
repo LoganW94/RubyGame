@@ -10,13 +10,7 @@ class Input
 
 		@window = window
 
-		@enter = false
-		@up = false
-		@down = false
-		@left = false
-		@right = false
-		@space = false
-		@escape = false 		
+		@enter, @up, @down, @left, @right, @space, @escape = false 		
 
 		@new_press_return, @new_press_up, @new_press_down, @new_press_left, @new_press_right, @new_press_space, @new_press_escape = false
 		
@@ -26,8 +20,6 @@ class Input
 
 	def update
 
-
-		#get input
 		
 		if @window.button_down?(Gosu::KbReturn) && @new_press_enter
         	return @enter = true 
@@ -49,13 +41,7 @@ class Input
         	return @right = true            		      	
    		end
 
-		@enter = false
-		@up = false
-		@down = false
-		@left = false
-		@right = false
-		@space = false
-		@escape = false 	
+		@enter, @up, @down, @left, @right, @space, @escape = false 	
 		
 		@new_press_enter = !@window.button_down?(Gosu::KbReturn)
 		@new_press_up= !@window.button_down?(Gosu::KbUp)
