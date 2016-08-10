@@ -15,8 +15,38 @@ class GraphicInterface
 		@save_and_quit_menu = Gosu::Image.new("graphics/inventory_menu.bmp")
 
 		@new_press_tab = false
+		@wait = false
+		@counter = 0
 	
 	end
+
+	def menu
+
+		@inventory.draw(200,150,5)		
+
+	end
+
+	def update enter, up, down, left, right, escape, tab, pause
+
+		@enter = enter
+		@up = up
+		@down = down
+		@left = left
+		@right = right
+		@escape = escape
+		@tab = tab
+		@pause = pause
+
+		if @tab == true && @pause == false
+   			return  $game_state = 1, $continue = true
+   		end
+
+ 
+
+   		@new_press_tab = !@@window.button_down?(Gosu::KbTab)
+
+	end
+
 
 	def draw window, player_level, player_exp, player_hp, player_in, location
 		
@@ -39,29 +69,6 @@ class GraphicInterface
 
 		#draw_line(0, 1, 0xff000000, 800, 1, 0xff000000)
 		#draw_quad(x1, y1, c1, x2, y2, c2, x3, y3, c3, x4, y4, c4, z = 0, mode = :default)
-	end
-
-	def update enter, up, down, left, right, escape
-
-		@enter = enter
-		@up = up
-		@down = down
-		@left = left
-		@right = right
-		@escape = escape
-
-		if @@window.button_down?(Gosu::KbTab)
-   			return  $game_state = 1, $continue = true
-   		end
-
-   		@new_press_tab = !@@window.button_down?(Gosu::KbTab)
-
-	end
-
-	def menu
-
-		@inventory.draw(200,150,5)		
-
 	end
 	
 

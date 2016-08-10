@@ -57,7 +57,7 @@ class Menu
 			@wait = false
 			@counter = 0	
 		end
-
+		
 		#changes menu for after game is already started		
 		if @continue == true
 			@display_one = "Resume"

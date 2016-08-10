@@ -4,7 +4,7 @@ require_relative 'background'
 require_relative 'player'
 require_relative 'gui'
 require_relative 'maths'
-#require_relative 'mapgenerator'
+require_relative 'inputhandler'
 #require_relative 'objects'
 
 
@@ -19,41 +19,48 @@ class Game
 		@pos_x = 50
 		@pos_y = 50	
 
-		@backdrop = Background.new( @pos_x, @pos_y, @window)
+		@backdrop = Background.new(@pos_x, @pos_y, @window)
 		@gui = GraphicInterface.new
-		@math = Maths.new	
-
+		@math = Maths.new
 		@player = Player.new	
-
-		@new_press_escape, @new_press_tab  = false	
+	
 
 	end
 
-	def update up, down, left, right
+	def update enter, up, down, left, right, escape, tab, pause
 
+		@enter = enter
+		@up = up
+		@down = down
+		@left = left
+		@right = right
+		@escape = escape
+		@tab = tab
+		@pause = pause
+		
+		puts @up
 		if $game_state != 2 
 			@draw_menu = false
 		end
 
 		@player.update					
 		
-		@pos_x = @math.move_x(left, right, @pos_x)
+		@pos_x = @math.move_x(@left, @right, @pos_x)
 		
-		@pos_y = @math.move_y(up, down, @pos_y)
+		@pos_y = @math.move_y(@up, @down, @pos_y)
 		
 		@backdrop.update
-		
-		if @window.button_down?(Gosu::KbEscape)
-   			return  $game_state = 0, $continue = true
-   		end
 
-   		if @window.button_down?(Gosu::KbTab) 
-			@draw_menu = true
-			return $game_state = 2
-		end
+		#puts @pause
+		if @pause == false
 
-		@new_press_escape = !@window.button_down?(Gosu::KbEscape)
-		@new_press_tab = !@window.button_down?(Gosu::KbTab)
+			if @escape == true
+   				return  $game_state = 0, $continue = true, @pause = true
+   			elsif @tab == true
+	   			return $game_state = 2, @pause = true 
+			end	
+   		end			
+
 	end
 
 	def draw

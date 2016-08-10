@@ -41,10 +41,14 @@ class Window < Gosu::Window
 				@input.right,
 				@input.escape)
 		elsif $game_state == 1
-			@game.update(@input.up,
+			@game.update(@input.enter, 
+				@input.up,
 				@input.down,
 				@input.left,
-				@input.right)
+				@input.right,
+				@input.escape,
+				@input.tab,
+				@input.pause)
 		elsif $game_state == -1
 			self.close
 		elsif $game_state == 2
@@ -53,7 +57,9 @@ class Window < Gosu::Window
 				@input.down,
 				@input.left,
 				@input.right,
-				@input.escape)						
+				@input.escape,
+				@input.tab,
+				@input.pause)						
 		end	
 
 
