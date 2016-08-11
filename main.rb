@@ -31,7 +31,7 @@ class Window < Gosu::Window
 	def update	
 
 		@input.update
-	
+
 
 		if $game_state == 0
 			@menu.update($continue, 
@@ -58,8 +58,7 @@ class Window < Gosu::Window
 				@input.left,
 				@input.right,
 				@input.escape,
-				@input.tab,
-				@input.pause)						
+				@input.tab)						
 		end	
 
 
