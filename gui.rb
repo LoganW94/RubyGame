@@ -15,8 +15,6 @@ class GraphicInterface
 		@save_and_quit_menu = Gosu::Image.new("graphics/inventory_menu.bmp")
 
 		@new_press_tab = false
-		@wait = false
-		@counter = 0
 	
 	end
 
@@ -26,8 +24,7 @@ class GraphicInterface
 
 	end
 
-	def update enter, up, down, left, right, escape, tab, pause
-
+	def update enter, up, down, left, right, escape, tab
 		@enter = enter
 		@up = up
 		@down = down
@@ -35,7 +32,6 @@ class GraphicInterface
 		@right = right
 		@escape = escape
 		@tab = tab
-		@pause = pause
 
 		if @tab == true
    			return  $game_state = 1

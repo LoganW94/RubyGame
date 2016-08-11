@@ -4,10 +4,11 @@ require_relative 'game'
 require_relative 'menu'
 require_relative 'inputhandler'
 require_relative 'gui'
+require_relative 'gamestates'
+require_relative 'player'
 
 class Window < Gosu::Window
 
-	$game_state = 0
 	$continue = false
 
 	def initialize width = 800, height = 600, fullscreen = false
@@ -23,6 +24,9 @@ class Window < Gosu::Window
 
 		@gui = GraphicInterface.new
 
+		@state = State.new
+		@delta = 0
+
 		# Yep. Global variables are generally bad form. What I would do is use a class variable (@@state = 0) and then you can just call menu.game_state.
 
 
@@ -32,33 +36,41 @@ class Window < Gosu::Window
 
 		@input.update
 
+		@state.change_state(@state.game_state, @delta)
+		@state.game_state
 
-		if $game_state == 0
+		if @state.game_state == 0
 			@menu.update($continue, 
 				@input.enter, 
 				@input.up,
 				@input.down,
 				@input.left,
 				@input.right,
-				@input.escape)
-		elsif $game_state == 1
+				@input.escape,
+				@state.game_state,
+				@delta)
+		elsif @state.game_state == 1
 			@game.update(@input.enter, 
 				@input.up,
 				@input.down,
 				@input.left,
 				@input.right,
 				@input.escape,
-				@input.tab)
-		elsif $game_state == -1
+				@input.tab,
+				@state.game_state)
+		elsif @state.game_state == -1
 			self.close
-		elsif $game_state == 2
+		elsif @state.game_state == 2
 			@gui.update(@input.enter, 
 				@input.up,
 				@input.down,
 				@input.left,
 				@input.right,
 				@input.escape,
-				@input.tab)						
+				@input.tab,
+				@state.game_state)
+		else
+			print @state.game_state
 		end	
 
 

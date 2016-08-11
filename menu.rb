@@ -11,8 +11,6 @@ class Menu
 
 		@window = window
 
-		@menu_state = 1
-
 		@pos_one = 140
 		@pos_two = 300
 		@pos_three = 455
@@ -32,7 +30,7 @@ class Menu
 	end
 
 	 
-	def update continue, enter, up, down, left, right, escape
+	def update continue, enter, up, down, left, right, escape, state, delta
 
 		@continue = continue
 		@enter = enter
@@ -41,6 +39,8 @@ class Menu
 		@left = left
 		@right = right
 		@escape = escape
+		@state = state
+		@delta = delta
 		
 
 		#selector animation replace with custom animation 
@@ -74,10 +74,10 @@ class Menu
 		#selection
 	
 		if @pos_y == @pos_one && @enter == true && @continue == false
-			$game_state = 1 # replace with new game creation menu
+			return @delta = 1 # replace with new game creation menu
 			
 		elsif @pos_y == @pos_one && @enter == true && @continue == true
-			$game_state = 1
+			return @state = 1
 			
 		elsif @pos_y == @pos_two && @enter == true && @continue == false
 			puts "load game" #replace with load game options
@@ -86,7 +86,7 @@ class Menu
 			puts "saved game"
 
 		elsif @pos_y == @pos_three && @enter == true
-			$game_state = -1
+			return @state = -1
 		end
 
 		
