@@ -21,8 +21,6 @@ class Menu
 		@pos_y = @pos_one
 		@depth = 6
 		@total_time = 0
-		@wait = false
-		@counter = 0
 		
 		@dot = Gosu::Image.new("graphics/dot.bmp")
 		@font = Gosu::Font.new(70)
@@ -48,15 +46,6 @@ class Menu
 		#selector animation replace with custom animation 
 		@total_time += 16.0
 		@wiggle = Math.sin(@total_time * 0.01) * 5
-
-		#adds pause between selections
-		if @wait == true
-			@counter +=1
-		end
-		if @counter >= 10
-			@wait = false
-			@counter = 0	
-		end
 		
 		#changes menu for after game is already started		
 		if @continue == true
@@ -66,42 +55,40 @@ class Menu
 
 		#verticle movement
 
-		if @down == true && @wait == false
+		if @down == true 
 			if @pos_y == @pos_one
 				@pos_y = @pos_two
-				@wait = true
 			elsif @pos_y == @pos_two
 				@pos_y = @pos_three
-				@wait = true
+
 			end
-		elsif @up == true && @wait == false							
+		elsif @up == true 							
 			if @pos_y == @pos_two
 				@pos_y = @pos_one
-				@wait = true
 			elsif @pos_y == @pos_three
 				@pos_y = @pos_two
-				@wait = true								
+									
 			end
 		end
 
 		#selection
-		if @wait == false
-			if @pos_y == @pos_one && @enter == true && @continue == false
-				$game_state = 1 # replace with new game creation menu
-				@wait = true
-			elsif @pos_y == @pos_one && @enter == true && @continue == true
-				$game_state = 1
-				@wait = true
-			elsif @pos_y == @pos_two && @enter == true && @continue == false
-				puts "load game" #replace with load game options
-				@wait = true
-			elsif @pos_y == @pos_two && @enter == true && @continue == true 
-				puts "saved game"
-				@wait = true
-			elsif @pos_y == @pos_three && @enter == true
-				$game_state = -1
-			end
+	
+		if @pos_y == @pos_one && @enter == true && @continue == false
+			$game_state = 1 # replace with new game creation menu
+			
+		elsif @pos_y == @pos_one && @enter == true && @continue == true
+			$game_state = 1
+			
+		elsif @pos_y == @pos_two && @enter == true && @continue == false
+			puts "load game" #replace with load game options
+		
+		elsif @pos_y == @pos_two && @enter == true && @continue == true 
+			puts "saved game"
+
+		elsif @pos_y == @pos_three && @enter == true
+			$game_state = -1
 		end
+
 		
 	end
 

@@ -37,13 +37,9 @@ class GraphicInterface
 		@tab = tab
 		@pause = pause
 
-		if @tab == true && @pause == false
-   			return  $game_state = 1, $continue = true
+		if @tab == true
+   			return  $game_state = 1
    		end
-
- 
-
-   		@new_press_tab = !@@window.button_down?(Gosu::KbTab)
 
 	end
 

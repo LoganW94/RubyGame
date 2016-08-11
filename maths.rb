@@ -57,12 +57,12 @@ class Maths
    	
    	
     	if @left == true
-  		x += 1
+  		x += 16
   		@left = false
   	end
 
   	if @right == true
-  		x += -1
+  		x += -16
   		@right = false
     end
     	
@@ -81,12 +81,12 @@ class Maths
     
 
     if @up == true
-    	y += 1
+    	y += 16
     	@up = false
     end
 
     if @down == true
-    	y += -1
+    	y += -16
     	@down = false
     end
 	

@@ -27,7 +27,7 @@ class Game
 
 	end
 
-	def update enter, up, down, left, right, escape, tab, pause
+	def update enter, up, down, left, right, escape, tab
 
 		@enter = enter
 		@up = up
@@ -36,7 +36,6 @@ class Game
 		@right = right
 		@escape = escape
 		@tab = tab
-		@pause = pause
 		
 		puts @up
 		if $game_state != 2 
@@ -51,15 +50,15 @@ class Game
 		
 		@backdrop.update
 
-		#puts @pause
-		if @pause == false
+		
+		if @escape == true
+			return  $game_state = 0, $continue = true
+		end
 
-			if @escape == true
-   				return  $game_state = 0, $continue = true, @pause = true
-   			elsif @tab == true
-	   			return $game_state = 2, @pause = true 
-			end	
-   		end			
+		if @tab == true
+   			return $game_state = 2 
+		end	
+   				
 
 	end
 
