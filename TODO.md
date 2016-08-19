@@ -60,7 +60,7 @@ key
 			+ Cave floor 2
 			+ Cave floor 3
 			+ Cave wall front
-			+ Cave wall side
+			+ Cave wall side left (mirror for side right)
 			+ Cave wall back
 			+ Cave wall top
 	+ Enemy
@@ -81,7 +81,7 @@ key
 			Repeat these steps until your level comes together nicely.
 			Each map should be of size map_size^2.
 			Each map should contain an even number of cells. 
-			 num_of_cells = (map_size / cell_size #in pixels)^2
+			num_of_cells = (map_size / cell_size #in pixels)^2
 			num_of_cell_tiles = (cell_size/tile_size)^2
 			num_of_tiles = (map_size/tile_size)^2
 			Each cell should have a size in pixels cell_size 
@@ -99,12 +99,13 @@ key
 	> Player
 		+ Create player_spawn method
 		+ Change increase of reqexp per level to something better
-		+ Also fix exp rollover
+		+ fix exp rollover
 	> Menu
 		+ Add and “are you sure you want to quit” query to startmenu once quit is selected.
 	> Game 
 		+ method to call player_spawn method
 		+ method to call enemy_spawn
+		+ a return game state method
 	> Tile 
 		+ method with algorithm to check over @map and make changes to values to create a proper map
 		+ more default variables
@@ -116,3 +117,6 @@ key
 		+ Create object inventory
 	> Main 
 		+ change global variable to Class @@Variable
+	> Gamestate
+		! fix issue of changing each state outside of menu class
+		+
