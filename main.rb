@@ -4,12 +4,13 @@ require_relative 'game'
 require_relative 'menu'
 require_relative 'inputhandler'
 require_relative 'gui'
-require_relative 'gamestates'
 require_relative 'player'
 
 class Window < Gosu::Window
 
-	$continue = false
+	@@continue = false
+	@@state = 0
+	
 
 	def initialize width = 800, height = 600, fullscreen = false
 		super
@@ -24,32 +25,31 @@ class Window < Gosu::Window
 
 		@gui = GraphicInterface.new
 
-		@state = State.new
-		@delta = 0
-
-		# Yep. Global variables are generally bad form. What I would do is use a class variable (@@state = 0) and then you can just call menu.game_state.
+		
 
 
 	end
 
 	def update	
 
-		@input.update
+		@input.update	
+		
 
-		@state.change_state(@state.game_state, @delta)
-		@state.game_state
-
-		if @state.game_state == 0
-			@menu.update($continue, 
+		if @@state == 0
+			@@state = @menu.return_state
+			print @@state
+			@menu.update(@@continue, 
 				@input.enter, 
 				@input.up,
 				@input.down,
 				@input.left,
 				@input.right,
 				@input.escape,
-				@state.game_state,
-				@delta)
-		elsif @state.game_state == 1
+				@@state)
+		elsif @@state == 1
+			@@state = @game.return_state
+			print @@state
+			@@continue = @game.return_continue
 			@game.update(@input.enter, 
 				@input.up,
 				@input.down,
@@ -57,20 +57,20 @@ class Window < Gosu::Window
 				@input.right,
 				@input.escape,
 				@input.tab,
-				@state.game_state)
-		elsif @state.game_state == -1
+				@@state)
+		elsif @@state == -1
 			self.close
-		elsif @state.game_state == 2
+		elsif @@state == 2
+			@@state = @gui.return_state
+			print @@state
 			@gui.update(@input.enter, 
 				@input.up,
 				@input.down,
 				@input.left,
 				@input.right,
-				@input.escape,
-				@input.tab,
-				@state.game_state)
+				@input.tab)
 		else
-			print @state.game_state
+			print @@state
 		end	
 
 
@@ -78,11 +78,11 @@ class Window < Gosu::Window
 
 	def draw		
 
-		if $game_state == 0
+		if @@state == 0
 			@menu.draw
-		elsif $game_state == 1
+		elsif @@state == 1
 			@game.draw
-		elsif $game_state == 2
+		elsif @@state == 2
 			@gui.menu		
 			@game.draw
 		end

@@ -14,12 +14,10 @@ class Maths
    	
     	if @left == true
   		x += 16
-  		@left = false
   	end
 
   	if @right == true
   		x += -16
-  		@right = false
     end
     	
     return x
@@ -38,12 +36,10 @@ class Maths
 
     if @up == true
     	y += 16
-    	@up = false
     end
 
     if @down == true
     	y += -16
-    	@down = false
     end
 	
     return y

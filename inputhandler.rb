@@ -10,10 +10,22 @@ class Input
 
 		@window = window
 
-		@enter, @up, @down, @left, @right, @space, @escape, @tab = false		
-
-		@new_press_return, @new_press_up, @new_press_down, @new_press_left, @new_press_right, @new_press_space, @new_press_escape, @new_press_tab = false
-
+		@enter, 
+        @up, 
+        @down, 
+        @left, 
+        @right, 
+        @space, 
+        @escape, 
+        @tab, 
+        @new_press_return, 
+        @new_press_up, 
+        @new_press_down, 
+        @new_press_left, 
+        @new_press_right, 
+        @new_press_space, 
+        @new_press_escape, 
+        @new_press_tab = false
 
         @counter = 0
         @pause = false

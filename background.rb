@@ -28,14 +28,6 @@ class Background
   	end
 
   	def draw x, y
-=begin
-      @map.map.each do |i|
-        i.length.times do |x|
-          print "#{i[x].val} "
-        end 
-        print "\n"
-      end 
-=end
 
       @map.draw(@map.map, x, y)
 

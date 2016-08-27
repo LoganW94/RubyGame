@@ -6,8 +6,6 @@ class Player
 
     attr_accessor :hp, :exp, :level, :req_xp
 
-    @@x
-
 
 	def initialize    
 

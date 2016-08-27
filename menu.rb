@@ -4,7 +4,8 @@ require 'gosu'
 
 class Menu
 
-	$game_state = 0
+	@@state = 0
+	@@continue
 
 	
 	def initialize window
@@ -30,9 +31,9 @@ class Menu
 	end
 
 	 
-	def update continue, enter, up, down, left, right, escape, state, delta
+	def update continue, enter, up, down, left, right, escape, state
 
-		@continue = continue
+		@@continue = continue
 		@enter = enter
 		@up = up
 		@down = down
@@ -40,7 +41,7 @@ class Menu
 		@right = right
 		@escape = escape
 		@state = state
-		@delta = delta
+	
 		
 
 		#selector animation replace with custom animation 
@@ -73,23 +74,25 @@ class Menu
 
 		#selection
 	
-		if @pos_y == @pos_one && @enter == true && @continue == false
-			return @delta = 1 # replace with new game creation menu
-			
-		elsif @pos_y == @pos_one && @enter == true && @continue == true
-			return @state = 1
-			
-		elsif @pos_y == @pos_two && @enter == true && @continue == false
+		if @pos_y == @pos_one && @enter == true && @@continue == false
+			return @@state = 1 # replace with new game creation menu
+		elsif @pos_y == @pos_one && @enter == true && @@continue == true
+			return @@state = 1
+		elsif @pos_y == @pos_two && @enter == true && @@continue == false
 			puts "load game" #replace with load game options
-		
-		elsif @pos_y == @pos_two && @enter == true && @continue == true 
+			print @@state
+		elsif @pos_y == @pos_two && @enter == true && @@continue == true 
 			puts "saved game"
-
 		elsif @pos_y == @pos_three && @enter == true
-			return @state = -1
+			return @@state = -1
 		end
-
 		
+	end
+
+	def return_state
+
+		return @@state
+
 	end
 
 	def draw

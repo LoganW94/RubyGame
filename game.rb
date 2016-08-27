@@ -11,6 +11,8 @@ require_relative 'inputhandler'
 
 class Game
 
+	@@state = 1
+	@@continue = false
 
 	def initialize window, width, height
 		@window = window
@@ -27,7 +29,7 @@ class Game
 
 	end
 
-	def update enter, up, down, left, right, escape, tab
+	def update enter, up, down, left, right, escape, tab, state
 
 		@enter = enter
 		@up = up
@@ -36,11 +38,7 @@ class Game
 		@right = right
 		@escape = escape
 		@tab = tab
-		
-		puts @up
-		if $game_state != 2 
-			@draw_menu = false
-		end
+		#@@state = state
 
 		@player.update					
 		
@@ -52,14 +50,22 @@ class Game
 
 		
 		if @escape == true
-			return  $game_state = 0, $continue = true
+			@@state = 0, @@continue = true
 		end
 
 		if @tab == true
-   			return $game_state = 2 
+   			@@state = 2 
 		end	
    				
 
+	end
+
+	def return_continue
+		return @@continue
+	end
+
+	def return_state
+		return @@state
 	end
 
 	def draw

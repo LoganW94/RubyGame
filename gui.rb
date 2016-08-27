@@ -4,7 +4,7 @@ require_relative 'game'
 
 class GraphicInterface 
 
-	$game_state = 0
+	@@state = 2
 	
 	def initialize 	
 						
@@ -24,21 +24,24 @@ class GraphicInterface
 
 	end
 
-	def update enter, up, down, left, right, escape, tab
+	def update enter, up, down, left, right, tab
 		@enter = enter
 		@up = up
 		@down = down
 		@left = left
 		@right = right
-		@escape = escape
 		@tab = tab
 
+
 		if @tab == true
-   			return  $game_state = 1
+   			@@state = 1
    		end
 
 	end
 
+	def return_state
+		return @@state
+	end
 
 	def draw window, player_level, player_exp, player_hp, player_in, location
 		
