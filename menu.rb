@@ -31,7 +31,7 @@ class Menu
 	end
 
 	 
-	def update continue, enter, up, down, left, right, escape, state
+	def update continue, enter, up, down, left, right, escape
 
 		@@continue = continue
 		@enter = enter
@@ -40,7 +40,7 @@ class Menu
 		@left = left
 		@right = right
 		@escape = escape
-		@state = state
+		
 	
 		
 
@@ -49,7 +49,7 @@ class Menu
 		@wiggle = Math.sin(@total_time * 0.01) * 5
 		
 		#changes menu for after game is already started		
-		if @continue == true
+		if @@continue == true
 			@display_one = "Resume"
 			@display_two = "Save"
 		end
@@ -75,16 +75,16 @@ class Menu
 		#selection
 	
 		if @pos_y == @pos_one && @enter == true && @@continue == false
-			return @@state = 1 # replace with new game creation menu
+			@@state = 1 # replace with new game creation menu
 		elsif @pos_y == @pos_one && @enter == true && @@continue == true
-			return @@state = 1
+			@@state = 1
 		elsif @pos_y == @pos_two && @enter == true && @@continue == false
 			puts "load game" #replace with load game options
 			print @@state
 		elsif @pos_y == @pos_two && @enter == true && @@continue == true 
 			puts "saved game"
 		elsif @pos_y == @pos_three && @enter == true
-			return @@state = -1
+			@@state = -1
 		end
 		
 	end

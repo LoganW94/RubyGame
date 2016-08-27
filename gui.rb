@@ -1,7 +1,5 @@
 require 'gosu'
 
-require_relative 'game'
-
 class GraphicInterface 
 
 	@@state = 2

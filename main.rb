@@ -44,8 +44,7 @@ class Window < Gosu::Window
 				@input.down,
 				@input.left,
 				@input.right,
-				@input.escape,
-				@@state)
+				@input.escape)
 		elsif @@state == 1
 			@@state = @game.return_state
 			print @@state
@@ -56,8 +55,7 @@ class Window < Gosu::Window
 				@input.left,
 				@input.right,
 				@input.escape,
-				@input.tab,
-				@@state)
+				@input.tab)
 		elsif @@state == -1
 			self.close
 		elsif @@state == 2

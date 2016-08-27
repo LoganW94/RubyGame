@@ -25,11 +25,12 @@ class Game
 		@gui = GraphicInterface.new
 		@math = Maths.new
 		@player = Player.new	
-	
+		@pause = false
+		@counter = 0
 
 	end
 
-	def update enter, up, down, left, right, escape, tab, state
+	def update enter, up, down, left, right, escape, tab
 
 		@enter = enter
 		@up = up
@@ -38,7 +39,15 @@ class Game
 		@right = right
 		@escape = escape
 		@tab = tab
-		#@@state = state
+		
+		if @pause == true
+        	@counter +=1
+        end
+
+        if @counter >= 10
+        	@pause = false
+        	@counter = 0            
+        end
 
 		@player.update					
 		
@@ -48,15 +57,19 @@ class Game
 		
 		@backdrop.update
 
-		
-		if @escape == true
-			@@state = 0, @@continue = true
-		end
+		if @pause == false
 
-		if @tab == true
-   			@@state = 2 
-		end	
-   				
+			if @escape == true
+				@@state = 0
+				@@continue = true
+				@pause = true
+			end
+
+			if @tab == true
+	   			@@state = 2 
+	   			@pause = true
+			end	
+		end  				
 
 	end
 
@@ -70,8 +83,7 @@ class Game
 
 	def draw
 
-		@gui.draw(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)
-		
+		@gui.draw(@window, @player.level, @player.exp, @player.hp, @player.inventory, @backdrop.location)		
 
 		@backdrop.draw(@pos_x, @pos_y)
 
