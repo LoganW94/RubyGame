@@ -18,8 +18,8 @@ class Game
 		@window = window
 		@width = width
 		@height = height
-		@pos_x = 50
-		@pos_y = 50	
+		@pos_x = 80
+		@pos_y = 80	
 
 		@backdrop = Background.new(@pos_x, @pos_y, @window)
 		@gui = GraphicInterface.new
@@ -54,6 +54,8 @@ class Game
 		@pos_x = @math.move_x(@left, @right, @pos_x)
 		
 		@pos_y = @math.move_y(@up, @down, @pos_y)
+
+		#write a function that checks, and if needed, changes the spawn point to a mulitple of 16
 		
 		@backdrop.update
 
@@ -87,7 +89,7 @@ class Game
 
 		@backdrop.draw(@pos_x, @pos_y)
 
-		@player.draw(@width/2, @height/2)
+		@player.draw(@width/2, @height/2 -5)
 
 	end	
 
