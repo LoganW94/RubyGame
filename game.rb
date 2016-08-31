@@ -55,7 +55,7 @@ class Game
 		
 		@pos_y = @math.move_y(@up, @down, @pos_y)
 
-		#write a function that checks, and if needed, changes the spawn point to a mulitple of 16
+		#write a function that checks, and if needed, changes the spawn point (pos_x/y) to a mulitple of 16
 		
 		@backdrop.update
 
