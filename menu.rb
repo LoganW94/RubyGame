@@ -8,9 +8,7 @@ class Menu
 	@@continue
 
 	
-	def initialize window
-
-		@window = window
+	def initialize 
 
 		@pos_one = 140
 		@pos_two = 300
@@ -47,8 +45,7 @@ class Menu
 		@right = right
 		@escape = escape
 		@@state = 0
-	
-		
+
 
 		#selector animation replace with custom animation 
 		@total_time += 16.0
@@ -85,7 +82,7 @@ class Menu
 		#selection
 	
 		if @dot_pos_y == @pos_one && @enter == true && @@continue == false # New Game
-			@@state = 1 # replace with new game creation menu
+			@@state = 3 # replace with new game creation menu
 		elsif @dot_pos_y == @pos_one && @enter == true && @@continue == true # Continue Game
 			@@state = 1
 		elsif @dot_pos_y == @pos_two && @enter == true && @@continue == false # Load previous save

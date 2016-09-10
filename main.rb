@@ -5,6 +5,7 @@ require_relative 'menu'
 require_relative 'inputhandler'
 require_relative 'gui'
 require_relative 'player'
+require_relative 'newgame'
 
 class Window < Gosu::Window
 
@@ -19,11 +20,13 @@ class Window < Gosu::Window
 	
 		@game = Game.new(self, width, height)
 		
-		@menu = Menu.new(self)
+		@menu = Menu.new
 
 		@input = Input.new(self)
 
 		@gui = GraphicInterface.new
+
+		@new_game = NewGame.new
 
 
 	end
@@ -62,7 +65,15 @@ class Window < Gosu::Window
 				@input.left,
 				@input.right,
 				@input.tab)
-			
+		elsif @@state = 3
+			@@state = @new_game.return_state
+			@new_game.update(@input.enter, 
+				@input.up,
+				@input.down,
+				@input.left,
+				@input.right,
+				@input.escape)
+					
 		end	
 
 		print @@state
@@ -77,6 +88,8 @@ class Window < Gosu::Window
 		elsif @@state == 2
 			@gui.menu		
 			@game.draw
+		elsif @@state == 3
+			@new_game.draw	
 		end
 				
 	end
