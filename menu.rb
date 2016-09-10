@@ -46,7 +46,7 @@ class Menu
 		@left = left
 		@right = right
 		@escape = escape
-		
+		@@state = 0
 	
 		
 

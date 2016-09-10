@@ -39,6 +39,7 @@ class Game
 		@right = right
 		@escape = escape
 		@tab = tab
+		@@state = 1
 		
 		if @pause == true
         	@counter +=1

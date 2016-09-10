@@ -29,6 +29,7 @@ class GraphicInterface
 		@left = left
 		@right = right
 		@tab = tab
+		@@state = 2
 
 
 		if @tab == true
