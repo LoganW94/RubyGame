@@ -18,6 +18,9 @@ class NewGame
 		@escape = escape
 		@state = 3
 
+		@text = "press Enter to play, or Escape to quit"
+		@text_width = @text.length * 20
+
 		if @escape == true
 			@state = 0
 		end
@@ -34,7 +37,7 @@ class NewGame
 
 	def draw
 
-		@font.draw("press Enter to play, or Escape to quit", 20, 250, 1)
+		@font.draw(@text, (800 - @text_width.to_i) / 2, 250, 1)
 
 	end
 

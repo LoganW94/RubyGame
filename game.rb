@@ -40,9 +40,9 @@ class Game
 
 		@player.update					
 		
-		@pos_x = @math.move_x(@left, @right, @pos_x)
+		@pos_x = @math.move_x(@pos_x)
 		
-		@pos_y = @math.move_y(@up, @down, @pos_y)
+		@pos_y = @math.move_y(@pos_y)
 
 		#write a function that checks, and if needed, changes the spawn point (pos_x/y) to a mulitple of 16
 		

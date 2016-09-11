@@ -7,14 +7,7 @@ class Maths
 	end
 
 
-	def move_x  left, right, x
-
-		@left = false
-		@right = false
-     	 
-   		@left = left
-   		@right = right
-   	
+	def move_x  x
    	
     	if @@window.button_down?(Gosu::KbLeft) == true
   		x += 16
@@ -25,11 +18,10 @@ class Maths
     	end
     	
     	return x
-    	
-
+ 
 	end
 
-	def move_y up, down, y
+	def move_y y
 
 		@up = false
 		@down = false
