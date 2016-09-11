@@ -33,8 +33,11 @@ class Window < Gosu::Window
 
 	def update	
 
-		@input.update	
-		
+		@input.update
+
+		if @@state == 1
+			@@continue = true
+		end
 
 		if @@state == 0
 			@@state = @menu.return_state
@@ -47,7 +50,6 @@ class Window < Gosu::Window
 				@input.escape)
 		elsif @@state == 1
 			@@state = @game.return_state
-			@@continue = @game.return_continue
 			@game.update(@input.enter, 
 				@input.up,
 				@input.down,
@@ -72,11 +74,9 @@ class Window < Gosu::Window
 				@input.down,
 				@input.left,
 				@input.right,
-				@input.escape)
-					
+				@input.escape)		
 		end	
 
-		print @@state
 	end
 
 	def draw		

@@ -5,7 +5,7 @@ require 'gosu'
 class Menu
 
 	@@state = 0
-	@@continue
+	@@continue = false
 
 	
 	def initialize 
@@ -46,7 +46,7 @@ class Menu
 		@escape = escape
 		@@state = 0
 
-
+		
 		#selector animation replace with custom animation 
 		@total_time += 16.0
 		@wiggle = Math.sin(@total_time * 0.01) * 5
@@ -82,7 +82,7 @@ class Menu
 		#selection
 	
 		if @dot_pos_y == @pos_one && @enter == true && @@continue == false # New Game
-			@@state = 3 # replace with new game creation menu
+			@@state = 3
 		elsif @dot_pos_y == @pos_one && @enter == true && @@continue == true # Continue Game
 			@@state = 1
 		elsif @dot_pos_y == @pos_two && @enter == true && @@continue == false # Load previous save

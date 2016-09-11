@@ -11,8 +11,6 @@ require_relative 'inputhandler'
 
 class Game
 
-	@@state = 1
-	@@continue = false
 
 	def initialize window, width, height
 		@window = window
@@ -39,16 +37,8 @@ class Game
 		@right = right
 		@escape = escape
 		@tab = tab
-		@@state = 1
-		
-		if @pause == true
-        	@counter +=1
-        end
+		@state = 1
 
-        if @counter >= 10
-        	@pause = false
-        	@counter = 0            
-        end
 
 		@player.update					
 		
@@ -60,28 +50,18 @@ class Game
 		
 		@backdrop.update
 
-		if @pause == false
+		if @escape == true
+			@state = 0
+		end
 
-			if @escape == true
-				@@state = 0
-				@@continue = true
-				@pause = true
-			end
+		if @tab == true
+   			@state = 2
+		end	 				
 
-			if @tab == true
-	   			@@state = 2 
-	   			@pause = true
-			end	
-		end  				
-
-	end
-
-	def return_continue
-		return @@continue
 	end
 
 	def return_state
-		return @@state
+		return @state
 	end
 
 	def draw

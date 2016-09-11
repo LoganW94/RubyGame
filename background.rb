@@ -5,14 +5,14 @@ require_relative 'mapgenerator'
 class Background
 
 	def initialize position_x, position_y, window
-		  @pos_x = position_x
+		@pos_x = position_x
     	@pos_y = position_y
     	@window = window
 
-      @is_map = false
+    	@is_map = false
       
-      @map = MapGen.new
-      @map.map_gen
+    	@map = MapGen.new
+    	@map.map_gen
 
     	
   	end
