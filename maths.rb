@@ -21,14 +21,7 @@ class Maths
  
 	end
 
-	def move_y y
-
-		@up = false
-		@down = false
-
-		@up = up
-   		@down = down
-    
+	def move_y y    
 
 	    if @@window.button_down?(Gosu::KbUp) == true
 	    	y += 16

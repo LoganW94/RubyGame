@@ -18,6 +18,11 @@ class NewGame
 		@escape = escape
 		@state = 3
 
+		
+
+
+		
+
 		@text = "press Enter to play, or Escape to quit"
 		@text_width = @text.length * 20
 
