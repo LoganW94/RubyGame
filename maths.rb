@@ -2,25 +2,29 @@ require 'gosu'
 
 class Maths
 
+	def initialize window
+		@@window = window
+	end
+
 
 	def move_x  left, right, x
 
 		@left = false
 		@right = false
      	 
-   	@left = left
-   	@right = right
+   		@left = left
+   		@right = right
    	
    	
-    	if @left == true
+    	if @@window.button_down?(Gosu::KbLeft) == true
   		x += 16
-  	end
+  		end
 
-  	if @right == true
-  		x += -16
-    end
+  		if @@window.button_down?(Gosu::KbRight) == true
+  			x += -16
+    	end
     	
-    return x
+    	return x
     	
 
 	end
@@ -31,18 +35,18 @@ class Maths
 		@down = false
 
 		@up = up
-    @down = down
+   		@down = down
     
 
-    if @up == true
-    	y += 16
-    end
+	    if @@window.button_down?(Gosu::KbUp) == true
+	    	y += 16
+	    end
 
-    if @down == true
-    	y += -16
-    end
-	
-    return y
+	    if @@window.button_down?(Gosu::KbDown) == true
+	    	y += -16
+	    end
+		
+	    return y
 
 	end
 
@@ -65,12 +69,5 @@ class Maths
 	def defend
 
 	end
-
-	def enemy_spawn
-
-	end
-
-
-
 
 end

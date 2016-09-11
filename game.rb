@@ -21,10 +21,8 @@ class Game
 
 		@backdrop = Background.new(@pos_x, @pos_y, @window)
 		@gui = GraphicInterface.new
-		@math = Maths.new
+		@math = Maths.new(@window)
 		@player = Player.new	
-		@pause = false
-		@counter = 0
 
 	end
 
